@@ -1,10 +1,10 @@
 import './App.css';
-import Button from 'react-bootstrap/Button';
+import PostList from './pages/posts/PostList';
 
 function App() {
   return (
     <div className="App">
-      <Button variant="warning">Test</Button>
+      <PostList />
     </div>
   );
 }
