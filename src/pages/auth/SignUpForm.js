@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 
 import { Image, Col, Row, Container, Form, Button } from "react-bootstrap";
+import axios from "axios";
 
 const SignUpForm = () => {
     const [signUpData, setSignUpData] = useState({
@@ -13,6 +14,7 @@ const SignUpForm = () => {
         password2: '',
     })
     const {username, password1, password2} = signUpData
+    const history = useHistory()
 
     const handleChange = (event) => {
         setSignUpData({
@@ -21,13 +23,23 @@ const SignUpForm = () => {
         })
     }
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await axios.post('/dj-rest-auth/registration/', signUpData)
+            history.push('/')
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign up</h1>
 
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="username">
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" placeholder="Enter username" 
