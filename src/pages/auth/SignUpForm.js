@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 
-import { Image, Col, Row, Container } from "react-bootstrap";
+import { Image, Col, Row, Container, Form, Button } from "react-bootstrap";
 
 const SignUpForm = () => {
   return (
@@ -13,7 +13,26 @@ const SignUpForm = () => {
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign up</h1>
 
-            {/* add your form here */}
+        <Form>
+            <Form.Group className="mb-3" controlId="username">
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="text" placeholder="Enter username" name="username" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="password1">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" name="password1" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="password2">
+                <Form.Label>Repeat Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" name="password2" />
+            </Form.Group>
+            
+            <Button variant="primary" type="submit">
+                Sign Up
+            </Button>
+        </Form>
 
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>
@@ -26,12 +45,6 @@ const SignUpForm = () => {
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
       >
-        <Image
-          className={`${appStyles.FillerImage}`}
-          src={
-            "https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"
-          }
-        />
       </Col>
     </Row>
   );
