@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Switch } from "react-router-dom";
 import PostList from './pages/posts/PostList';
 import NavBar from './components/NavBar';
+import './api/axiosDefaults';
 
 function App() {
   return (
