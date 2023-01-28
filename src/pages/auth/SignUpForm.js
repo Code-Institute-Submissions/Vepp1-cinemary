@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 
-import { Image, Col, Row, Container, Form, Button } from "react-bootstrap";
+import { Image, Col, Row, Container, Form, Button, NavLink } from "react-bootstrap";
 import axios from "axios";
 
 const SignUpForm = () => {
@@ -68,9 +68,9 @@ const SignUpForm = () => {
 
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>
-          <Link className={styles.Link} to="/signin">
+          <NavLink className={styles.Link} href="/signin">
             Already have an account? <span>Sign in</span>
-          </Link>
+          </NavLink>
         </Container>
       </Col>
       <Col
