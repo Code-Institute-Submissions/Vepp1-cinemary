@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 
-import { Col, Row, Container, Form, Button, NavLink } from "react-bootstrap";
+import { Image, Col, Row, Container, Form, Button, NavLink } from "react-bootstrap";
 import axios from "axios";
 
 const SignUpForm = () => {
@@ -13,7 +13,7 @@ const SignUpForm = () => {
         password1: '',
         password2: '',
     })
-    const {username, password1, password2} = signUpData
+    const {username, password1, password2} = signUpData;
     const history = useHistory();
 
     const handleChange = (event) => {
