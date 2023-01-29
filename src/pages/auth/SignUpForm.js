@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 
-import { Image, Col, Row, Container, Form, Button, NavLink } from "react-bootstrap";
+import { Col, Row, Container, Form, Button, NavLink } from "react-bootstrap";
 import axios from "axios";
 
 const SignUpForm = () => {

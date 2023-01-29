@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 
-import { Image, Col, Row, Container, Form, Button } from "react-bootstrap";
+import { Col, Row, Container, Form, Button } from "react-bootstrap";
 import axios from "axios";
 
 const SignInForm = () => {
@@ -25,8 +25,8 @@ const SignInForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-          await axios.post("/dj-rest-auth/login/", signInData)
-          history.push("/")
+            await axios.post('/dj-rest-auth/login/', signInData)
+            history.push('/')
         } catch (err) {
             console.log(err)
         }
