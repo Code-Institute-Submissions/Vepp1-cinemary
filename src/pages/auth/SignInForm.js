@@ -8,17 +8,16 @@ import { Image, Col, Row, Container, Form, Button } from "react-bootstrap";
 import axios from "axios";
 
 const SignInForm = () => {
-    const [signUpData, setSignUpData] = useState({
+    const [signInData, setSignInData] = useState({
         username: '',
-        password1: '',
-        password2: '',
+        password: '',
     })
-    const {username, password1, password2} = signUpData
+    const {username, password} = signInData
     const history = useHistory()
 
     const handleChange = (event) => {
-        setSignUpData({
-            ...signUpData,
+        setSignInData({
+            ...signInData,
             [event.target.name]: event.target.value
         })
     }
@@ -26,8 +25,8 @@ const SignInForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            await axios.post('/dj-rest-auth/registration/', signUpData)
-            history.push('/signin')
+          await axios.post("/dj-rest-auth/login/", signInData)
+          history.push("/")
         } catch (err) {
             console.log(err)
         }
@@ -51,12 +50,12 @@ const SignInForm = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" 
                 name="password" className={styles.Input}
-                value={password1} onChange={handleChange} />
+                value={password} onChange={handleChange} />
             </Form.Group>
 
             
             <Button variant="primary" type="submit">
-                Sign Up
+                Sign In
             </Button>
         </Form>
 
