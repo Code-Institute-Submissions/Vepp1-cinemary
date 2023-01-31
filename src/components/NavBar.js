@@ -20,26 +20,6 @@ const NavBar = () => {
     }
   };
 
-  {
-    /* RPT
-      Extrair
-      Dar um bisu em react-extras
-*/
-  }
-  const loggedInNav = (
-    <>
-      <Nav.Link href="/">Create Post</Nav.Link>
-      <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-      <Nav.Link>{currentUser?.username}</Nav.Link>{" "}
-    </>
-  );
-  const loggedOutNav = (
-    <>
-      <Nav.Link href="/signin">Sign in</Nav.Link>
-      <Nav.Link href="/signup">Sign up</Nav.Link>
-    </>
-  );
-
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -47,7 +27,18 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {currentUser ? loggedInNav : loggedOutNav}
+            {currentUser ? (
+              <>
+                <Nav.Link href="/">Create Post</Nav.Link>
+                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                <Nav.Link>{currentUser?.username}</Nav.Link>{" "}
+              </>
+            ) : (
+              <>
+                <Nav.Link href="/signin">Sign in</Nav.Link>
+                <Nav.Link href="/signup">Sign up</Nav.Link>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

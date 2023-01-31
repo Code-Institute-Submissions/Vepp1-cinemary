@@ -15,7 +15,6 @@ const SignInForm = () => {
     username: "",
     password: "",
   });
-  const { username, password } = signInData;
   const history = useHistory();
 
   const handleChange = (event) => {
@@ -50,7 +49,7 @@ const SignInForm = () => {
                 placeholder="Enter username"
                 name="username"
                 className={styles.Input}
-                value={username}
+                value={signInData.username}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -62,7 +61,7 @@ const SignInForm = () => {
                 placeholder="Password"
                 name="password"
                 className={styles.Input}
-                value={password}
+                value={signInData.password}
                 onChange={handleChange}
               />
             </Form.Group>
