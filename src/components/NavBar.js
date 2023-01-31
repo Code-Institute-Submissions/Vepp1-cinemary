@@ -1,27 +1,44 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { axiosReq } from '../api/axiosDefaults';
-import { useCurrentUser, useSetCurrentUser } from '../context/CurrentUserContext';
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { axiosReq } from "../api/axiosDefaults";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../context/CurrentUserContext";
 
 const NavBar = () => {
-  const currentUser = useCurrentUser()
-  const setCurrentUser = useSetCurrentUser()
+  const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
   const handleLogout = async () => {
     try {
-      await axiosReq.post('/dj-rest-auth/logout/')
-      setCurrentUser(null)
+      await axiosReq.post("/dj-rest-auth/logout/");
+      setCurrentUser(null);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
-  const loggedInNav = (<><Nav.Link href="/">Create Post</Nav.Link>
-                      <Nav.Link onClick={handleLogout}>Logout</Nav.Link> 
-                      <Nav.Link>{currentUser?.username}</Nav.Link> </>)
-  const loggedOutNav = (<><Nav.Link href="/signin">Sign in</Nav.Link>
-                      <Nav.Link href="/signup">Sign up</Nav.Link></>)
+  {
+    /* RPT
+      Extrair
+      Dar um bisu em react-extras
+*/
+  }
+  const loggedInNav = (
+    <>
+      <Nav.Link href="/">Create Post</Nav.Link>
+      <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+      <Nav.Link>{currentUser?.username}</Nav.Link>{" "}
+    </>
+  );
+  const loggedOutNav = (
+    <>
+      <Nav.Link href="/signin">Sign in</Nav.Link>
+      <Nav.Link href="/signup">Sign up</Nav.Link>
+    </>
+  );
 
   return (
     <Navbar bg="light" expand="lg">
@@ -30,12 +47,12 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            { currentUser ? loggedInNav : loggedOutNav}
+            {currentUser ? loggedInNav : loggedOutNav}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
 export default NavBar;
