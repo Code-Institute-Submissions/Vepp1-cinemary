@@ -34,7 +34,7 @@ const PostList = () => {
           <Card.Text className='mt-2'>
               Genrer: {post.genrer}
           </Card.Text>
-          <p className={styles.P}>Created by {post.owner}. 23/01/2023</p>
+          <p className={styles.P}>Created by {post.owner}. {post.created_at}</p>
         </Card.Body>
       </Card>))}
         </> 
