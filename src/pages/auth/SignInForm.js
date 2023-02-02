@@ -7,6 +7,7 @@ import appStyles from "../../App.module.css";
 import { Col, Row, Container, Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
+import { setTokenTimestamp } from "../../utils/utils";
 
 const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();
@@ -29,6 +30,7 @@ const SignInForm = () => {
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
+      setTokenTimestamp(data);
       history.push("/");
     } catch (err) {
       console.log(err);
