@@ -1,3 +1,4 @@
+import { NavLink } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -31,14 +32,14 @@ const NavBar = () => {
           <Nav className="me-auto">
             {currentUser ? (
               <>
-                <Nav.Link href="/">Create Post</Nav.Link>
-                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-                <Nav.Link>{currentUser?.username}</Nav.Link>{" "}
+                <NavLink href="/posts/create">Create Post</NavLink>
+                <NavLink onClick={handleLogout}>Logout</NavLink>
+                <NavLink>{currentUser?.username}</NavLink>{" "}
               </>
             ) : (
               <>
-                <Nav.Link href="/signin">Sign in</Nav.Link>
-                <Nav.Link href="/signup">Sign up</Nav.Link>
+                <NavLink href="/signin">Sign in</NavLink>
+                <NavLink href="/signup">Sign up</NavLink>
               </>
             )}
           </Nav>
