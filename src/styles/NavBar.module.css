@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500&display=swap");
+
+.Logo {
+  font-family: "Unbounded", cursive;
+  font-weight: 500;
+}
+
+.Nav {
+  margin-left: auto;
+  font-weight: 300;
+}

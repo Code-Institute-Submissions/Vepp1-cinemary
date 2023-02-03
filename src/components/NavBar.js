@@ -25,12 +25,12 @@ const NavBar = () => {
   };
 
   return (
-    <Navbar bg="light" expand="lg" className={styles.Logo} expanded>
+    <Navbar bg="dark" variant="dark" expand="lg" className={styles.Logo}>
       <Container>
         <Navbar.Brand href="/">Cinemary</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className={styles.Nav}>
             {currentUser ? (
               <>
                 <NavLink href="/posts/create">Create Post</NavLink>
