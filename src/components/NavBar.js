@@ -8,6 +8,7 @@ import {
   useSetCurrentUser,
 } from "../context/CurrentUserContext";
 import { removeTokenTimestamp } from "../utils/utils";
+import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -24,7 +25,7 @@ const NavBar = () => {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className={styles.Logo} expanded>
       <Container>
         <Navbar.Brand href="/">Cinemary</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
