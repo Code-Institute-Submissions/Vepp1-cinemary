@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 
-import { Col, Row, Container, Form, Button } from "react-bootstrap";
+import { Col, Row, Container, Form, Button, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
 import { setTokenTimestamp } from "../../utils/utils";
@@ -16,6 +16,7 @@ const SignInForm = () => {
     username: "",
     password: "",
   });
+  const [errors, setErrors] = useState({});
   const history = useHistory();
 
   const handleChange = (event) => {
@@ -32,8 +33,8 @@ const SignInForm = () => {
       setCurrentUser(data.user);
       setTokenTimestamp(data);
       history.push("/");
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      setErrors(error.response?.data);
     }
   };
 
@@ -55,6 +56,11 @@ const SignInForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.name?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group className="mb-3" controlId="password">
               <Form.Label>Password</Form.Label>
@@ -67,6 +73,11 @@ const SignInForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.password?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Button variant="primary" type="submit">
               Sign In
