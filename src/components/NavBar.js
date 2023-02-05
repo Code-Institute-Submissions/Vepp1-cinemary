@@ -25,9 +25,15 @@ const NavBar = () => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className={styles.Logo}>
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Cinemary</Navbar.Brand>
+        <a className={styles.NoHover} href="/">
+          <i className="fa-solid fa-film"></i>
+        </a>
+
+        <Navbar.Brand className={styles.Logo} href="/">
+          Cinemary
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={styles.Nav}>
