@@ -24,17 +24,22 @@ const PostList = () => {
     <>
       {posts.results?.map((post) => (
         <Card className={styles.Post}>
-          {/* RPT 
-            Falta alt na imagem 
-        */}
-          <Card.Img variant="top" src={post.image} />
-          <Card.Body>
-            <Card.Title>{post.title}</Card.Title>
-            <Card.Text className="mt-2">Genrer: {post.genrer}</Card.Text>
-            <p className={styles.P}>
-              Created by {post.owner}. {post.created_at}
-            </p>
-          </Card.Body>
+          <a href="/" className={styles.Anchor}>
+            <figure>
+              <Card.Img variant="top" src={post.image} alt="Post Image" />
+            </figure>
+
+            <Card.Body>
+              <Card.Title className={styles.Title}>{post.title}</Card.Title>
+              <Card.Text className="mt-2">Genrer: {post.genrer}</Card.Text>
+              <span className={styles.Align}>
+                <p>{post.created_at}</p>
+                <p className={styles.Owner}>
+                  <em>Created by:</em> {post.owner}
+                </p>
+              </span>
+            </Card.Body>
+          </a>
         </Card>
       ))}
     </>

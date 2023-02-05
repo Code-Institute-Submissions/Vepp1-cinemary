@@ -1,11 +1,36 @@
 .Post {
-  width: 25rem;
+  width: 25em;
   margin: 50px auto;
+  border: 1px inset black;
 }
 
-.P {
-  text-decoration: underline;
-  font-size: 15px;
-  color: rgb(0, 24, 243);
-  margin-top: 2rem;
+.Owner {
+  font-size: 20px;
+}
+
+.Anchor {
+  color: black;
+}
+
+.Anchor:hover {
+  color: grey;
+  border: 2px inset black;
+}
+
+.Anchor figure img {
+  -webkit-filter: grayscale(0) blur(0);
+  filter: grayscale(0) blur(0);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.Anchor:hover figure img {
+  -webkit-filter: grayscale(100%) blur(3px);
+  filter: grayscale(100%) blur(3px);
+  z-index: 999;
+}
+
+.Title {
+  font-size: 28px;
+  margin-bottom: 1em;
 }
