@@ -36,12 +36,14 @@ const NavBar = () => {
           <Nav className={styles.Nav}>
             {currentUser ? (
               <>
+                <NavLink href="/">Posts</NavLink>
                 <NavLink href="/posts/create">Create Post</NavLink>
                 <NavLink onClick={handleLogout}>Logout</NavLink>
                 <NavLink>{currentUser?.username}</NavLink>{" "}
               </>
             ) : (
               <>
+                <NavLink href="/">Posts</NavLink>
                 <NavLink href="/signin">Sign in</NavLink>
                 <NavLink href="/signup">Sign up</NavLink>
               </>
