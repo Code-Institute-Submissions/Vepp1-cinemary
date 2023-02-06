@@ -4,10 +4,6 @@
   border: 1px inset black;
 }
 
-.Owner {
-  font-size: 20px;
-}
-
 .Anchor {
   color: black;
 }
@@ -32,5 +28,4 @@
 
 .Title {
   font-size: 28px;
-  margin-bottom: 1em;
 }

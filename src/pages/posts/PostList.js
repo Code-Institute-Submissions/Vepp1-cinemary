@@ -35,7 +35,7 @@ const PostList = () => {
               <span className={styles.Align}>
                 <p>{post.created_at}</p>
                 <p className={styles.Owner}>
-                  <em>Created by:</em> {post.owner}
+                  <em>Created by:</em> <strong>{post.owner}</strong>
                 </p>
               </span>
             </Card.Body>
