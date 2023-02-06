@@ -4,7 +4,15 @@ import { useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 
-import { Col, Row, Container, Form, Button, Alert } from "react-bootstrap";
+import {
+  Col,
+  Row,
+  Container,
+  Form,
+  Button,
+  Alert,
+  NavLink,
+} from "react-bootstrap";
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
 import { setTokenTimestamp } from "../../utils/utils";
@@ -40,7 +48,7 @@ const SignInForm = () => {
 
   return (
     <Row className={styles.Row}>
-      <Col className="my-auto py-2 p-md-2" md={6}>
+      <Col className="mx-auto my-auto" md="8">
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign in</h1>
 
@@ -79,12 +87,19 @@ const SignInForm = () => {
               </Alert>
             ))}
 
-            <Button variant="primary" type="submit">
+            <Button variant="success" type="submit">
               Sign In
             </Button>
           </Form>
         </Container>
+
+        <Container className={`mt-3 ${appStyles.Content}`}>
+          <NavLink className={styles.Link} href="/signup">
+            Don't have an account? <span>Sign up</span>
+          </NavLink>
+        </Container>
       </Col>
+
       <Col
         md={6}
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
