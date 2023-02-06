@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
@@ -14,7 +14,7 @@ const SignUpForm = () => {
     password2: "",
   });
   const { username, password1, password2 } = signUpData;
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setSignUpData({
@@ -27,7 +27,7 @@ const SignUpForm = () => {
     event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
-      history.push("/signin");
+      navigate("/signin");
     } catch (err) {
       console.log(err);
     }

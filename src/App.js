@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import PostList from "./pages/posts/PostList";
 import NavBar from "./components/NavBar";
 import "./api/axiosDefaults";
@@ -13,12 +13,12 @@ function App() {
     <div className="App">
       <NavBar />
       <Container>
-        <Switch>
-          <Route exact path="/" render={() => <PostList />} />
-          <Route exact path="/signup" render={() => <SignUpForm />} />
-          <Route exact path="/signin" render={() => <SignInForm />} />
-          <Route export path="/posts/create" render={() => <CreatePost />} />
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<PostList />} />
+          <Route exact path="/signup" element={<SignUpForm />} />
+          <Route exact path="/signin" element={<SignInForm />} />
+          <Route export path="/posts/create" element={<CreatePost />} />
+        </Routes>
       </Container>
     </div>
   );
