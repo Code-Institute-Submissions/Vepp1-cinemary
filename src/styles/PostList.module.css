@@ -4,15 +4,6 @@
   border: 1px inset black;
 }
 
-.Anchor {
-  color: black;
-}
-
-.Anchor:hover {
-  color: grey;
-  border: 2px inset black;
-}
-
 .Anchor figure img {
   -webkit-filter: grayscale(0) blur(0);
   filter: grayscale(0) blur(0);
