@@ -36,8 +36,8 @@ const NavBar = () => {
           <Nav className={styles.Nav}>
             {currentUser ? (
               <>
-                <NavLink href="/">Posts</NavLink>
-                <NavLink href="/posts/create">Create Post</NavLink>
+                <NavLink href="/">Movies</NavLink>
+                <NavLink href="/posts/create">Create Review</NavLink>
                 <NavLink onClick={handleLogout}>Logout</NavLink>
                 <NavLink>{currentUser?.username}</NavLink>{" "}
               </>

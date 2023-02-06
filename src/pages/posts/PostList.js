@@ -39,7 +39,7 @@ const PostList = ({ message }) => {
 
               <Card.Body>
                 <span className={styles.DropDown}>
-                  <DropDownMenu />
+                  <DropDownMenu message1="Edit Post" message2="Delete Post" />
                 </span>
                 <Card.Title className={styles.Title}>{post.title} </Card.Title>
                 <Card.Text className="mt-2">Genrer: {post.genrer}</Card.Text>
