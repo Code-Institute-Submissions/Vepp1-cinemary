@@ -2,7 +2,11 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useHistory } from "react-router-dom";
-import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
+import {
+  isUserLoggedIn,
+  removeTokenTimestamp,
+  shouldRefreshToken,
+} from "../utils/utils";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -15,6 +19,7 @@ export const CurrentUserProvider = ({ children }) => {
   const history = useHistory();
 
   const handleMount = async () => {
+    if (!isUserLoggedIn()) return;
     try {
       const { data } = await axiosRes.get("dj-rest-auth/user/");
       setCurrentUser(data);
@@ -26,7 +31,7 @@ export const CurrentUserProvider = ({ children }) => {
   useMemo(() => {
     axiosReq.interceptors.request.use(
       async (config) => {
-        if (shouldRefreshToken()) {
+        if (isUserLoggedIn()) {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
