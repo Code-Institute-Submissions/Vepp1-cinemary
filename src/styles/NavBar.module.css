@@ -6,7 +6,11 @@
   color: white;
 }
 
-.Logo:hover {
+.Logo i {
+  color: white;
+}
+
+.Logo:hover i {
   color: white;
   opacity: 100;
 }
@@ -14,14 +18,4 @@
 .Nav {
   margin-left: auto;
   font-weight: 500;
-}
-
-.NoHover > i {
-  color: white;
-  opacity: 100%;
-}
-
-.NoHover > i:hover {
-  color: white;
-  opacity: 100%;
 }

@@ -29,9 +29,7 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand className={styles.Logo} href="/">
           Cinemary
-          <a className={styles.NoHover} href="/">
-            <i className="fa-solid fa-film"></i>
-          </a>
+          <i className="fa-solid fa-film"></i>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
