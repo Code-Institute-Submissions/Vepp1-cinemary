@@ -1,4 +1,4 @@
-import { NavLink } from "react-bootstrap";
+import { Button, DropdownButton, NavLink } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -9,6 +9,7 @@ import {
 } from "../context/CurrentUserContext";
 import { removeTokenTimestamp } from "../utils/utils";
 import styles from "../styles/NavBar.module.css";
+import DropdownItem from "react-bootstrap/esm/DropdownItem";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -37,9 +38,19 @@ const NavBar = () => {
             {currentUser ? (
               <>
                 <NavLink href="/">Movies</NavLink>
-                <NavLink href="/posts/create">Create Review</NavLink>
-                <NavLink onClick={handleLogout}>Logout</NavLink>
-                <NavLink>{currentUser?.username}</NavLink>{" "}
+                <NavLink href="/posts/create">Review</NavLink>
+
+                <DropdownButton
+                  variant="dark"
+                  className=""
+                  title={currentUser?.username}
+                >
+                  <DropdownItem>
+                    <NavLink className="text-dark" onClick={handleLogout}>
+                      Logout
+                    </NavLink>
+                  </DropdownItem>
+                </DropdownButton>
               </>
             ) : (
               <>

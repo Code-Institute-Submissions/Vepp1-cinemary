@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import DropDownMenu from "../../components/DropDownMenu";
 import styles from "../../styles/PostList.module.css";
 import Asset from "../../components/Asset";
-import { Container } from "react-bootstrap";
+import { Container, DropdownButton, InputGroup } from "react-bootstrap";
+import DropdownItem from "react-bootstrap/esm/DropdownItem";
 
 const PostList = ({ message }) => {
   const [posts, setPosts] = useState({ results: [] });
@@ -38,9 +38,17 @@ const PostList = ({ message }) => {
               </a>
 
               <Card.Body>
-                <span className={styles.DropDown}>
-                  <DropDownMenu message1="Edit Post" message2="Delete Post" />
-                </span>
+                <InputGroup className="flex-row-reverse">
+                  <DropdownButton
+                    variant="outline-secondary"
+                    id="input-group-dropdown-1"
+                    className="flex-row-reverse"
+                  >
+                    <DropdownItem>Edit</DropdownItem>
+                    <DropdownItem>Delete</DropdownItem>
+                  </DropdownButton>
+                </InputGroup>
+
                 <Card.Title className={styles.Title}>{post.title} </Card.Title>
                 <Card.Text className="mt-2">Genrer: {post.genrer}</Card.Text>
                 <span className={styles.Align}>
