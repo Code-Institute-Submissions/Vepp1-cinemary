@@ -1,0 +1,5 @@
+.Image {
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
+}

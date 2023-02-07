@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 
-import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
+import styles from "../../styles/SignInUpForm.module.css";
 
-import { Col, Row, Container, Form, Button } from "react-bootstrap";
+import { Col, Row, Container, Form, Button, Image } from "react-bootstrap";
 
 import { axiosRes } from "../../api/axiosDefaults";
 
@@ -52,7 +52,7 @@ const CreatePost = () => {
 
   return (
     <Row className={styles.Row}>
-      <Col className="my-auto py-2 p-md-2" md={6}>
+      <Col className="my-auto mx-auto pt-5" md="8">
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>Create Post</h1>
 
@@ -94,7 +94,21 @@ const CreatePost = () => {
             </Form.Group>
 
             <Form.Group controlId="image" className="mb-3">
-              <Form.Label>Default file input example</Form.Label>
+              {postData.image ? (
+                <>
+                  <figure>
+                    <Image className={appStyles.Image} src={postData.image} />
+                  </figure>
+                  <div>
+                    <Form.Label>Change Upload</Form.Label>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Form.Label>Upload Image</Form.Label>
+                </>
+              )}
+
               <Form.Control
                 type="file"
                 accept="image/*"
@@ -103,7 +117,7 @@ const CreatePost = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="info" type="submit">
               Create
             </Button>
           </Form>

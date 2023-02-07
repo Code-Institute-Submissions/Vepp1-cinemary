@@ -1,4 +1,4 @@
-import { Button, DropdownButton, NavLink } from "react-bootstrap";
+import { DropdownButton, NavLink } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -54,7 +54,7 @@ const NavBar = () => {
               </>
             ) : (
               <>
-                <NavLink href="/">Posts</NavLink>
+                <NavLink href="/">Movies</NavLink>
                 <NavLink href="/signin">Sign in</NavLink>
                 <NavLink href="/signup">Sign up</NavLink>
               </>
