@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/PostList.module.css";
 import Asset from "../../components/Asset";
 import { Container, DropdownButton, InputGroup } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 
-const PostList = ({ message }) => {
+const PostList = () => {
   const [posts, setPosts] = useState({ results: [] });
   const { pathname } = useLocation();
   const [hasLoad, setHasLoad] = useState(false);
+  const navigate = useNavigate();
+
+  const handleDelete = async (key) => {
+    try {
+      await axiosReq.delete(`/posts/${key}`);
+      navigate(0);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -45,7 +55,9 @@ const PostList = ({ message }) => {
                     className="flex-row-reverse"
                   >
                     <DropdownItem>Edit</DropdownItem>
-                    <DropdownItem>Delete</DropdownItem>
+                    <DropdownItem onClick={() => handleDelete(post.id)}>
+                      Delete
+                    </DropdownItem>
                   </DropdownButton>
                 </InputGroup>
 
