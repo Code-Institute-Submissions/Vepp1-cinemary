@@ -7,6 +7,7 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import CreatePost from "./pages/posts/CreatePost";
+import EditPost from "./pages/posts/EditPost";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/signup" element={<SignUpForm />} />
           <Route exact path="/signin" element={<SignInForm />} />
           <Route export path="/posts/create" element={<CreatePost />} />
+          <Route export path="/edit/:id" element={<EditPost />} />
         </Routes>
       </Container>
     </div>
