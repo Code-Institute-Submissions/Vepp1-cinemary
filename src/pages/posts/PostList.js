@@ -6,12 +6,14 @@ import styles from "../../styles/PostList.module.css";
 import Asset from "../../components/Asset";
 import { Container, DropdownButton, InputGroup } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
+import { useCurrentUser } from "../../context/CurrentUserContext";
 
 const PostList = () => {
   const [posts, setPosts] = useState({ results: [] });
   const { pathname } = useLocation();
   const [hasLoad, setHasLoad] = useState(false);
   const navigate = useNavigate();
+  const currentUser = useCurrentUser();
 
   const handleDelete = async (key) => {
     try {
@@ -48,20 +50,24 @@ const PostList = () => {
               </a>
 
               <Card.Body>
-                <InputGroup className="flex-row-reverse">
-                  <DropdownButton
-                    variant="outline-secondary"
-                    id="input-group-dropdown-1"
-                    className="flex-row-reverse"
-                  >
-                    <DropdownItem onClick={() => navigate(`/edit/${post.id}`)}>
-                      Edit
-                    </DropdownItem>
-                    <DropdownItem onClick={() => handleDelete(post.id)}>
-                      Delete
-                    </DropdownItem>
-                  </DropdownButton>
-                </InputGroup>
+                {currentUser?.username === post.owner ? (
+                  <InputGroup className="flex-row-reverse">
+                    <DropdownButton
+                      variant="outline-secondary"
+                      id="input-group-dropdown-1"
+                      className="flex-row-reverse"
+                    >
+                      <DropdownItem
+                        onClick={() => navigate(`/edit/${post.id}`)}
+                      >
+                        Edit
+                      </DropdownItem>
+                      <DropdownItem onClick={() => handleDelete(post.id)}>
+                        Delete
+                      </DropdownItem>
+                    </DropdownButton>
+                  </InputGroup>
+                ) : null}
 
                 <Card.Title className={styles.Title}>{post.title} </Card.Title>
                 <Card.Text className="mt-2">Genrer: {post.genrer}</Card.Text>
