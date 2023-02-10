@@ -24,7 +24,7 @@ const SignInForm = () => {
     username: "",
     password: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState();
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -64,11 +64,11 @@ const SignInForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.username?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
+            {errors ? (
+              <Alert variant="warning">
+                Username and Password didn't match!
               </Alert>
-            ))}
+            ) : null}
 
             <Form.Group className="mb-3" controlId="password">
               <Form.Label>Password</Form.Label>
@@ -81,11 +81,6 @@ const SignInForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.password?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
-            ))}
 
             <Button variant="success" type="submit">
               Sign In

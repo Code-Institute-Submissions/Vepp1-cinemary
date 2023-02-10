@@ -5,7 +5,7 @@ import styles from "../../styles/SignInUpForm.module.css";
 
 import { Col, Row, Container, Form, Button, Image } from "react-bootstrap";
 
-import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { axiosReq } from "../../api/axiosDefaults";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditPost = () => {
@@ -44,10 +44,14 @@ const EditPost = () => {
     formData.append("title", postData.title);
     formData.append("genrer", postData.genrer);
     formData.append("content", postData.content);
-    formData.append("image", imageUpload.current.files[0]);
+
+    if (imageUpload?.current?.files[0]) {
+      formData.append("image", imageUpload.current.files[0]);
+    }
 
     try {
-      await axiosRes.post("/posts/", formData);
+      await axiosReq.patch(`/posts/${id}`, formData);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -111,20 +115,12 @@ const EditPost = () => {
             </Form.Group>
 
             <Form.Group controlId="image" className="mb-3">
-              {postData.image ? (
-                <>
-                  <figure>
-                    <Image className={appStyles.Image} src={postData.image} />
-                  </figure>
-                  <div>
-                    <Form.Label>Change Upload</Form.Label>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <Form.Label>Upload Image</Form.Label>
-                </>
-              )}
+              <div>
+                <Form.Label>Change Upload</Form.Label>
+              </div>
+              <figure>
+                <Image className={appStyles.Image} src={postData.image} />
+              </figure>
 
               <Form.Control
                 type="file"
@@ -134,8 +130,8 @@ const EditPost = () => {
               />
             </Form.Group>
 
-            <Button variant="info" type="submit">
-              Create
+            <Button variant="warning" type="submit">
+              Update
             </Button>
           </Form>
         </Container>

@@ -54,7 +54,9 @@ const PostList = () => {
                     id="input-group-dropdown-1"
                     className="flex-row-reverse"
                   >
-                    <DropdownItem>Edit</DropdownItem>
+                    <DropdownItem onClick={() => navigate(`/edit/${post.id}`)}>
+                      Edit
+                    </DropdownItem>
                     <DropdownItem onClick={() => handleDelete(post.id)}>
                       Delete
                     </DropdownItem>
