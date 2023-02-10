@@ -61,8 +61,11 @@ const EditPost = () => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`);
-        const { title, content, genrer, image } = data;
-        setPostData({ title, content, image, genrer });
+        const { title, content, genrer, image, is_owner } = data;
+
+        is_owner
+          ? setPostData({ title, content, image, genrer })
+          : navigate("/");
       } catch (error) {
         console.log(error);
       }
