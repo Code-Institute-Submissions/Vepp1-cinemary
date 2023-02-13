@@ -40,6 +40,22 @@ const PostList = () => {
     }
   };
 
+  const handleUnlike = async (key) => {
+    try {
+      await axiosRes.delete(`/likes/${key}`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.key === key
+            ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+            : post;
+        }),
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -92,9 +108,15 @@ const PostList = () => {
                     <strong>Genrer:</strong> {post.genrer}
                   </p>
 
-                  <span onClick={() => handleLike(post.id)}>
-                    <i className="fas fa-heart" />
-                  </span>
+                  {post.like_id ? (
+                    <span onClick={() => handleUnlike(post.like_id)}>
+                      <i className="fas fa-heart" />
+                    </span>
+                  ) : (
+                    <span onClick={() => handleLike(post.id)}>
+                      <i className="fas fa-heart" />
+                    </span>
+                  )}
 
                   <i className="fas fa-comment" />
 
