@@ -42,7 +42,7 @@ const PostList = () => {
       {hasLoad ? (
         <>
           {posts.results?.map((post) => (
-            <Card className={styles.Post}>
+            <Card className={styles.Post} key={post.id}>
               <a href="/" className={styles.Anchor}>
                 <figure>
                   <Card.Img variant="top" src={post.image} alt="Post Image" />
@@ -56,6 +56,7 @@ const PostList = () => {
                       variant="outline-secondary"
                       id="input-group-dropdown-1"
                       className="flex-row-reverse"
+                      title=""
                     >
                       <DropdownItem
                         onClick={() => navigate(`/edit/${post.id}`)}
