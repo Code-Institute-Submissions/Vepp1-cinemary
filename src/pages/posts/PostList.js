@@ -71,13 +71,25 @@ const PostList = () => {
                 ) : null}
 
                 <Card.Title className={styles.Title}>{post.title} </Card.Title>
-                <Card.Text className="mt-2">Genrer: {post.genrer}</Card.Text>
-                <span className={styles.Align}>
-                  <p>{post.created_at}</p>
-                  <p className={styles.Owner}>
-                    <em>Created by:</em> <strong>{post.owner}</strong>
+                <Card.Text className="mt-2">
+                  <p>
+                    <strong>Genrer:</strong> {post.genrer}
                   </p>
-                </span>
+
+                  <p>
+                    <i className="fas fa-heart" />
+                    <i className="fas fa-comment" />
+                  </p>
+
+                  <div className={styles.Align}>
+                    <div className={styles.Owner}>
+                      <p>
+                        <em>Created by:</em> <strong>{post.owner}</strong> -{" "}
+                        {post.created_at}{" "}
+                      </p>
+                    </div>
+                  </div>
+                </Card.Text>
               </Card.Body>
             </Card>
           ))}
