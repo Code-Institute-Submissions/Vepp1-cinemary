@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import { useLocation, useNavigate } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/PostList.module.css";
 import Asset from "../../components/Asset";
 import { Container, DropdownButton, InputGroup } from "react-bootstrap";
@@ -21,6 +21,22 @@ const PostList = () => {
       navigate(0);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const handleLike = async (key) => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { post: key });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.key === key
+            ? { ...post, likes_count: post.likes_count + 1, like_id: data.key }
+            : post;
+        }),
+      }));
+    } catch (error) {
+      console.log(key);
     }
   };
 
@@ -76,10 +92,11 @@ const PostList = () => {
                     <strong>Genrer:</strong> {post.genrer}
                   </p>
 
-                  <p>
+                  <span onClick={() => handleLike(post.id)}>
                     <i className="fas fa-heart" />
-                    <i className="fas fa-comment" />
-                  </p>
+                  </span>
+
+                  <i className="fas fa-comment" />
 
                   <div className={styles.Align}>
                     <div className={styles.Owner}>
