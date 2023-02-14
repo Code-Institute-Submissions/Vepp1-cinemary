@@ -20,3 +20,19 @@
 .Title {
   font-size: 28px;
 }
+
+.LoggedOut:hover {
+  color: lightgrey;
+}
+
+.Liked {
+  color: red;
+}
+
+.Liked:hover {
+  color: lightgray;
+}
+
+.NotLiked:hover {
+  color: red;
+}

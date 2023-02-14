@@ -108,13 +108,21 @@ const PostList = () => {
                     <strong>Genrer:</strong> {post.genrer}
                   </p>
 
-                  {post.like_id ? (
-                    <span onClick={() => handleUnlike(post.like_id)}>
-                      <i className="fas fa-heart" />
-                    </span>
+                  {currentUser ? (
+                    post.like_id ? (
+                      <span onClick={() => handleUnlike(post.like_id)}>
+                        <i className={`fas fa-heart ${styles.Liked}`} />
+                      </span>
+                    ) : (
+                      <span onClick={() => handleLike(post.id)}>
+                        <i
+                          className={`fa-regular fa-heart ${styles.NotLiked}`}
+                        />
+                      </span>
+                    )
                   ) : (
-                    <span onClick={() => handleLike(post.id)}>
-                      <i className="fas fa-heart" />
+                    <span>
+                      <i className={`fas fa-heart ${styles.LoggedOut}`} />
                     </span>
                   )}
 
