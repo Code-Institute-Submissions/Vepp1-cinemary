@@ -21,6 +21,10 @@
   font-size: 28px;
 }
 
+.LoggedOut {
+  color: lightgray;
+}
+
 .LoggedOut:hover {
   color: lightgrey;
 }

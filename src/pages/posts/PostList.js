@@ -111,10 +111,12 @@ const PostList = () => {
                   {currentUser ? (
                     post.like_id ? (
                       <span onClick={() => handleUnlike(post.like_id)}>
+                        {post.likes_count}
                         <i className={`fas fa-heart ${styles.Liked}`} />
                       </span>
                     ) : (
                       <span onClick={() => handleLike(post.id)}>
+                        {post.likes_count}
                         <i
                           className={`fa-regular fa-heart ${styles.NotLiked}`}
                         />
@@ -122,6 +124,7 @@ const PostList = () => {
                     )
                   ) : (
                     <span>
+                      {post.likes_count}
                       <i className={`fas fa-heart ${styles.LoggedOut}`} />
                     </span>
                   )}
