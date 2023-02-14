@@ -29,7 +29,7 @@ const PostList = () => {
         {hasLoad ? (
           <>
             {posts.results?.map((post) => (
-              <Col md="4" className="pr-5">
+              <Col>
                 <Movie key={post.id} {...post} setPosts={setPosts} />
               </Col>
             ))}

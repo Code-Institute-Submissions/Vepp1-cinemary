@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
-import styles from "../../styles/PostList.module.css";
+import styles from "../../styles/Movie.module.css";
 import { DropdownButton, InputGroup } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import { useCurrentUser } from "../../context/CurrentUserContext";

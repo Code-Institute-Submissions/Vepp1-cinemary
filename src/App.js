@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Container>
+      <Container fluid>
         <Routes>
           <Route exact path="/" element={<PostList />} />
           <Route exact path="/signup" element={<SignUpForm />} />
