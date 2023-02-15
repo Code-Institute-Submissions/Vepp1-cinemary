@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Image, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import styles from "../../styles/MoviePage.module.css";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -38,9 +39,15 @@ const MoviePage = () => {
   }, [id]);
 
   return (
-    <Row>
-      <Col lg={6}>
-        <Image src={postData.image} />
+    <Row className="my-5">
+      <Col>
+        <Image src={postData.image} className={styles.Image} />
+      </Col>
+      <Col>
+        <p>{postData.genrer}</p>
+        <p>{postData.created_at}</p>
+        <p>{postData.content}</p>
+        <h1>{postData.title}</h1>
       </Col>
     </Row>
   );
