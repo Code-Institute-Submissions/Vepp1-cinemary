@@ -26,12 +26,8 @@ const Movie = (props) => {
       props.setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
-          return post.key === props.id
-            ? {
-                ...post,
-                likes_count: post.likes_count + 1,
-                like_id: data.props.id,
-              }
+          return post.id === props.id
+            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
             : post;
         }),
       }));
@@ -42,11 +38,11 @@ const Movie = (props) => {
 
   const handleUnlike = async () => {
     try {
-      await axiosRes.delete(`/likes/${props.id}`);
+      await axiosRes.delete(`/likes/${props.like_id}`);
       props.setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
-          return post.props.id === props.id
+          return post.id === props.id
             ? { ...post, likes_count: post.likes_count - 1, like_id: null }
             : post;
         }),
@@ -66,25 +62,28 @@ const Movie = (props) => {
         </a>
 
         <Card.Body>
-          {currentUser?.username === props.owner ? (
-            <InputGroup className="flex-row-reverse">
-              <DropdownButton
-                variant="outline-secondary"
-                id="input-group-dropdown-1"
-                className="flex-row-reverse"
-                title=""
-              >
-                <DropdownItem onClick={() => navigate(`/edit/${props.id}`)}>
-                  Edit
-                </DropdownItem>
-                <DropdownItem onClick={() => handleDelete()}>
-                  Delete
-                </DropdownItem>
-              </DropdownButton>
-            </InputGroup>
-          ) : null}
-
-          <Card.Title className={styles.Title}>{props.title} </Card.Title>
+          <Card.Title className={`${styles.Title} d-inline-flex`}>
+            {props.title}{" "}
+            <span className="ml-2">
+              {currentUser?.username === props.owner ? (
+                <InputGroup className="flex-row-reverse">
+                  <DropdownButton
+                    variant="outline-secondary"
+                    id="input-group-dropdown-1"
+                    className="flex-row-reverse"
+                    title=""
+                  >
+                    <DropdownItem onClick={() => navigate(`/edit/${props.id}`)}>
+                      Edit
+                    </DropdownItem>
+                    <DropdownItem onClick={() => handleDelete()}>
+                      Delete
+                    </DropdownItem>
+                  </DropdownButton>
+                </InputGroup>
+              ) : null}
+            </span>
+          </Card.Title>
           <Card.Text className="mt-2">
             <p>
               <strong>Genrer:</strong> {props.genrer}
@@ -92,12 +91,12 @@ const Movie = (props) => {
 
             {currentUser ? (
               props.like_id ? (
-                <span onClick={() => handleUnlike(props.like_id)}>
+                <span onClick={() => handleUnlike()}>
                   {props.likes_count}
                   <i className={`fas fa-heart ${styles.Liked}`} />
                 </span>
               ) : (
-                <span onClick={() => handleLike(props.id)}>
+                <span onClick={() => handleLike()}>
                   {props.likes_count}
                   <i className={`fa-regular fa-heart ${styles.NotLiked}`} />
                 </span>
@@ -109,7 +108,7 @@ const Movie = (props) => {
               </span>
             )}
 
-            <i className="fas fa-comment" />
+            <i className="fa-regular fa-comment" />
 
             <div className={styles.Align}>
               <div className={styles.Owner}>
