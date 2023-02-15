@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/Movie.module.css";
-import { DropdownButton, InputGroup } from "react-bootstrap";
+import { DropdownButton, InputGroup, NavLink } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 
@@ -55,7 +55,7 @@ const Movie = (props) => {
   return (
     <>
       <Card className={styles.Post} key={props.id}>
-        <a href="/" className={styles.Anchor}>
+        <a href={`/posts/${props.id}`} className={styles.Anchor}>
           <figure>
             <Card.Img variant="top" src={props.image} alt="Post Image" />
           </figure>
