@@ -109,7 +109,8 @@ const EditPost = () => {
             <Form.Group className="mb-3" controlId="content">
               <Form.Label>Content</Form.Label>
               <Form.Control
-                type="text"
+                as="textarea"
+                rows={15}
                 placeholder="Content"
                 name="content"
                 className={styles.Input}
