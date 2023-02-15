@@ -8,6 +8,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import CreatePost from "./pages/posts/CreatePost";
 import EditPost from "./pages/posts/EditPost";
+import MoviePage from "./pages/posts/MoviePage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/signin" element={<SignInForm />} />
           <Route export path="/posts/create" element={<CreatePost />} />
           <Route export path="/edit/:id" element={<EditPost />} />
+          <Route export path="/posts/:id" element={<MoviePage />} />
         </Routes>
       </Container>
     </div>
