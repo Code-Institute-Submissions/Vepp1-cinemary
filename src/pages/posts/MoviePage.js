@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import Comments from "../../components/Comments";
+import { useCurrentUser } from "../../context/CurrentUserContext";
 import styles from "../../styles/MoviePage.module.css";
+import Comments from "../comments/Comments";
+import CommentsCreate from "../comments/CommentsCreate";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -16,6 +18,8 @@ const MoviePage = () => {
     created_at: "",
     updated_at: "",
   });
+  const [comments, setComments] = useState({ results: [] });
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const handleMount = async (event) => {
@@ -57,7 +61,11 @@ const MoviePage = () => {
           </p>
         </Col>
         <Col>
-          <Comments />
+          <CommentsCreate
+            post={id}
+            setPostData={setPostData}
+            setComments={setComments}
+          />
         </Col>
       </Row>
     </Container>
