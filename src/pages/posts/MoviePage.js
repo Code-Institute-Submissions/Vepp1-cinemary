@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Image, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import styles from "../../styles/MoviePage.module.css";
@@ -39,17 +39,24 @@ const MoviePage = () => {
   }, [id]);
 
   return (
-    <Row className="my-5">
-      <Col>
-        <Image src={postData.image} className={styles.Image} />
-      </Col>
-      <Col>
-        <p>{postData.genrer}</p>
-        <p>{postData.created_at}</p>
-        <p>{postData.content}</p>
-        <h1>{postData.title}</h1>
-      </Col>
-    </Row>
+    <Container className="my-5">
+      <Row className="text-justify">
+        <Col>
+          <Image src={postData.image} className={styles.Image} />
+        </Col>
+        <Col>
+          <h1 className="my-3">{postData.title}</h1>
+          <p className="text-left">
+            <strong>Genrer:</strong> {postData.genrer}
+          </p>
+          <p>{postData.content}</p>
+          <p>
+            Created by: <strong>{postData.owner}</strong> on{" "}
+            {postData.created_at}
+          </p>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
