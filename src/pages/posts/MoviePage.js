@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import Comments from "../../components/Comments";
 import styles from "../../styles/MoviePage.module.css";
 
 const MoviePage = () => {
@@ -54,6 +55,9 @@ const MoviePage = () => {
             Created by: <strong>{postData.owner}</strong> on{" "}
             {postData.created_at}
           </p>
+        </Col>
+        <Col>
+          <Comments />
         </Col>
       </Row>
     </Container>
