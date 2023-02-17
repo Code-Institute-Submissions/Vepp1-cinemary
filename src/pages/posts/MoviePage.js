@@ -63,11 +63,17 @@ const MoviePage = () => {
             setComments={setComments}
           />
           {comments.results.length ? (
-            comments.results.map((comment) => <p>{comment.owner}</p>)
+            comments.results.map((comment) => (
+              <Comments
+                key={comment.id}
+                {...comment}
+                setPost={setPostData}
+                setComments={setComments}
+              />
+            ))
           ) : (
             <p>none</p>
           )}
-          <p>test</p>
         </Col>
       </Row>
     </Container>
