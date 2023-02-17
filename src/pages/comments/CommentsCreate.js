@@ -21,14 +21,6 @@ const CommentsCreate = (props) => {
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
-      setPostData((prevPost) => ({
-        results: [
-          {
-            ...prevPost.results[0],
-            comments_count: prevPost.results[0].comments_count + 1,
-          },
-        ],
-      }));
       setContent("");
     } catch (error) {
       console.log(error);
