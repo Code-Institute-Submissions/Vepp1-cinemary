@@ -9,24 +9,19 @@ import CommentsCreate from "../comments/CommentsCreate";
 
 const MoviePage = () => {
   const { id } = useParams();
-  const [postData, setPostData] = useState({
-    title: "",
-    genrer: "",
-    content: "",
-    image: "",
-    owner: "",
-    created_at: "",
-    updated_at: "",
-  });
+  const [postData, setPostData] = useState({ results: [] });
   const [comments, setComments] = useState({ results: [] });
   const currentUser = useCurrentUser();
 
   useEffect(() => {
     const handleMount = async (event) => {
       try {
-        const { data } = await axiosReq.get(`/posts/${id}`);
+        const [{ data: post }, { data: comments }] = await Promise.all([
+          axiosReq.get(`/posts/${id}`),
+          axiosReq.get(`/comments/?post=${id}`),
+        ]);
         const { title, content, genrer, image, owner, created_at, updated_at } =
-          data;
+          post;
         setPostData({
           title,
           content,
@@ -36,6 +31,7 @@ const MoviePage = () => {
           created_at,
           updated_at,
         });
+        setComments(comments);
       } catch (error) {
         console.log(error);
       }
@@ -66,6 +62,12 @@ const MoviePage = () => {
             setPostData={setPostData}
             setComments={setComments}
           />
+          {comments.results.length ? (
+            comments.results.map((comment) => <p>{comment.owner}</p>)
+          ) : (
+            <p>none</p>
+          )}
+          <p>test</p>
         </Col>
       </Row>
     </Container>

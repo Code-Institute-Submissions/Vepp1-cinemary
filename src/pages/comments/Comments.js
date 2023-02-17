@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import CommentsCreate from "./CommentsCreate";
 
-const Comments = () => {
-  const [comments, setComments] = useState({
-    owner: "",
-    created_at: "",
-    content: "",
-  });
+const Comments = (props) => {
+  const [owner, created_at, content, id] = props;
   const currentUser = useCurrentUser();
 
   return (
