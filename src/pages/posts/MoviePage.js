@@ -65,7 +65,7 @@ const MoviePage = () => {
               <Comments
                 key={comment.id}
                 {...comment}
-                setPost={setPostData}
+                setPostData={setPostData}
                 setComments={setComments}
               />
             ))

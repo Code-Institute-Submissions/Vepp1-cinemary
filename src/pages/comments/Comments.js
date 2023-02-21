@@ -1,23 +1,29 @@
 import React, { useState } from "react";
 import { Container, DropdownButton, InputGroup } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
+import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import CommentsEdit from "./CommentsEdit";
 
 const Comments = (props) => {
-  const {
-    owner,
-    updated_at,
-    content,
-    id,
-    setPostData,
-    setComments,
-    created_at,
-  } = props;
+  const { owner, updated_at, content, id, setComments, setPostData } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/comments/${id}/`);
+
+      setComments((prevComments) => ({
+        ...prevComments,
+        results: prevComments.results.filter((comment) => comment.id !== id),
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -48,7 +54,7 @@ const Comments = (props) => {
               <DropdownItem onClick={() => setShowEditForm(true)}>
                 Edit
               </DropdownItem>
-              <DropdownItem>Delete</DropdownItem>
+              <DropdownItem onClick={handleDelete}>Delete</DropdownItem>
             </DropdownButton>
           </InputGroup>
         )}
