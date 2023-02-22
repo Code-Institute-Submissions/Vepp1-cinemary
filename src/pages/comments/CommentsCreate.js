@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 import { axiosRes } from "../../api/axiosDefaults";
+import styles from "../../styles/Comments.module.css";
 
 const CommentsCreate = (props) => {
   const { setPostData, setComments, post } = props;
@@ -32,15 +33,22 @@ const CommentsCreate = (props) => {
       <Form.Group>
         <InputGroup>
           <Form.Control
-            placeholder="my comment..."
+            placeholder="Leave your comment!"
             as="textarea"
             value={content}
             onChange={handleChange}
             rows={2}
+            className={styles.Form}
           />
         </InputGroup>
       </Form.Group>
-      <button type="submit">post</button>
+      <button
+        className={`${styles.Button} btn d-block ml-auto`}
+        disabled={!content.trim()}
+        type="submit"
+      >
+        post
+      </button>
     </Form>
   );
 };
