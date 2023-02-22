@@ -4,8 +4,9 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { Col, Row, Container, Form } from "react-bootstrap";
 import Movie from "./Movie";
+import styles from "../../styles/MovieList.module.css";
 
-const PostList = (message) => {
+const MovieList = () => {
   const [posts, setPosts] = useState({ results: [] });
   const { pathname } = useLocation();
   const [hasLoad, setHasLoad] = useState(false);
@@ -28,22 +29,31 @@ const PostList = (message) => {
 
   return (
     <>
-      <Form onSubmit={(event) => event.preventDefault()}>
+      <Form
+        onSubmit={(event) => event.preventDefault()}
+        className={`pt-5 ${styles.SearchBar}`}
+      >
         <Form.Control
           type="text"
-          className="mr-sm-2"
-          placeholder="Search reviews"
+          className="mr-sm-2 text-center"
+          placeholder="Search reviews by title, genrer or author username"
           onChange={(event) => setQuery(event.target.value)}
         />
       </Form>
       <Row>
         {hasLoad ? (
           <>
-            {posts.results?.map((post) => (
-              <Col>
-                <Movie key={post.id} {...post} setPosts={setPosts} />
-              </Col>
-            ))}
+            {posts.results.length ? (
+              posts.results.map((post) => (
+                <Col>
+                  <Movie key={post.id} {...post} setPosts={setPosts} />
+                </Col>
+              ))
+            ) : (
+              <Container>
+                <Asset message />
+              </Container>
+            )}
           </>
         ) : (
           <Container>
@@ -55,4 +65,4 @@ const PostList = (message) => {
   );
 };
 
-export default PostList;
+export default MovieList;
