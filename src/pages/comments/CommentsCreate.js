@@ -4,7 +4,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/Comments.module.css";
 
 const CommentsCreate = (props) => {
-  const { setPostData, setComments, post } = props;
+  const { setComments, post } = props;
   const [content, setContent] = useState("");
 
   const handleChange = (event) => {
@@ -33,7 +33,7 @@ const CommentsCreate = (props) => {
       <Form.Group>
         <InputGroup>
           <Form.Control
-            placeholder="Leave your comment!"
+            placeholder="my comment..."
             as="textarea"
             value={content}
             onChange={handleChange}

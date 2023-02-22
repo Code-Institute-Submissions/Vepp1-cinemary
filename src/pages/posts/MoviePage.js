@@ -46,7 +46,7 @@ const MoviePage = () => {
   return (
     <>
       {hasLoad ? (
-        <Container>
+        <Container className="mt-5 pt-5">
           <Row className="text-justify">
             <Col>
               <Image src={postData.image} className={styles.Image} />
@@ -78,6 +78,7 @@ const MoviePage = () => {
                   <Comments
                     key={comment.id}
                     {...comment}
+                    postData={postData}
                     setPostData={setPostData}
                     setComments={setComments}
                   />
