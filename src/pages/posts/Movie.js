@@ -107,8 +107,10 @@ const Movie = (props) => {
                 <i className={`fas fa-heart ${styles.LoggedOut}`} />
               </span>
             )}
-
-            <i className="fa-regular fa-comment" />
+            <span>
+              {props.comments_count}
+              <i className="fa-regular fa-comment" />
+            </span>
 
             <div className={styles.Align}>
               <div className={styles.Owner}>
