@@ -8,7 +8,7 @@ import { Col, Row, Container, Form, Button, Image } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useNavigate, useParams } from "react-router-dom";
 
-const EditPost = () => {
+const EditReview = () => {
   const [postData, setPostData] = useState({
     title: "",
     genrer: "",
@@ -149,4 +149,4 @@ const EditPost = () => {
   );
 };
 
-export default EditPost;
+export default EditReview;
