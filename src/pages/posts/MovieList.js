@@ -30,7 +30,7 @@ const MovieList = () => {
   return (
     <>
       <Row>
-        <Col sm={10} className="offset-1">
+        <Col sm={10} className="offset-1 pt-5">
           <Form
             onSubmit={(event) => event.preventDefault()}
             className={`pt-5 ${styles.SearchBar}`}
