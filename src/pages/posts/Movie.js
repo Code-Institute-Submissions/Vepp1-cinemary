@@ -64,7 +64,7 @@ const Movie = (props) => {
         <Card.Body className={styles.Body}>
           <Card.Title className={`${styles.Title} d-inline-flex`}>
             {props.title}{" "}
-            <span className="ml-2">
+            <span className="float-right pl-2">
               {currentUser?.username === props.owner ? (
                 <InputGroup className="flex-row-reverse">
                   <DropdownButton
