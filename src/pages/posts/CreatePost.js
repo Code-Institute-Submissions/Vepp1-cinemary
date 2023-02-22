@@ -97,16 +97,20 @@ const CreatePost = () => {
             <Form.Group controlId="image" className="mb-3">
               {postData.image ? (
                 <>
+                  <div>
+                    <i className={` ${styles.Upload} fa-solid fa-upload`} />
+                    <Form.Label>Change Upload</Form.Label>
+                  </div>
                   <figure>
                     <Image className={appStyles.Image} src={postData.image} />
                   </figure>
-                  <div>
-                    <Form.Label>Change Upload</Form.Label>
-                  </div>
                 </>
               ) : (
                 <>
-                  <Form.Label>Upload Image</Form.Label>
+                  <Form.Label>
+                    <i className={` ${styles.Upload} fa-solid fa-upload`} />
+                    Upload Image
+                  </Form.Label>
                 </>
               )}
 

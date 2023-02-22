@@ -30,7 +30,7 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand className={styles.Logo} href="/">
           Cinemary
-          <i className="fa-solid fa-film"></i>
+          <i className="fa-solid fa-film" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
