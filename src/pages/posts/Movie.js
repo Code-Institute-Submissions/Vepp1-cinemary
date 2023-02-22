@@ -61,7 +61,7 @@ const Movie = (props) => {
           </figure>
         </a>
 
-        <Card.Body>
+        <Card.Body className={styles.Body}>
           <Card.Title className={`${styles.Title} d-inline-flex`}>
             {props.title}{" "}
             <span className="ml-2">

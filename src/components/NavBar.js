@@ -37,8 +37,8 @@ const NavBar = () => {
           <Nav className={styles.Nav}>
             {currentUser ? (
               <>
-                <NavLink href="/">Movies</NavLink>
-                <NavLink href="/posts/create">Review</NavLink>
+                <NavLink href="/">Reviews</NavLink>
+                <NavLink href="/posts/create">Create</NavLink>
 
                 <DropdownButton
                   variant="dark"
@@ -50,11 +50,14 @@ const NavBar = () => {
                       Logout
                     </NavLink>
                   </DropdownItem>
+                  <DropdownItem>
+                    <NavLink className="text-dark">Change Credentials</NavLink>
+                  </DropdownItem>
                 </DropdownButton>
               </>
             ) : (
               <>
-                <NavLink href="/">Movies</NavLink>
+                <NavLink href="/">Review</NavLink>
                 <NavLink href="/signin">Sign in</NavLink>
                 <NavLink href="/signup">Sign up</NavLink>
               </>

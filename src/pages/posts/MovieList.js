@@ -29,17 +29,21 @@ const MovieList = () => {
 
   return (
     <>
-      <Form
-        onSubmit={(event) => event.preventDefault()}
-        className={`pt-5 ${styles.SearchBar}`}
-      >
-        <Form.Control
-          type="text"
-          className="mr-sm-2 text-center"
-          placeholder="Search reviews by title, genrer or author username"
-          onChange={(event) => setQuery(event.target.value)}
-        />
-      </Form>
+      <Row>
+        <Col sm={10} className="offset-1">
+          <Form
+            onSubmit={(event) => event.preventDefault()}
+            className={`pt-5 ${styles.SearchBar}`}
+          >
+            <Form.Control
+              type="text"
+              className="mr-sm-2 text-center"
+              placeholder="Search reviews by title, genrer or author username"
+              onChange={(event) => setQuery(event.target.value)}
+            />
+          </Form>
+        </Col>
+      </Row>
       <Row>
         {hasLoad ? (
           <>

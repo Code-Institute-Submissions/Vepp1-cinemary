@@ -40,3 +40,7 @@
 .NotLiked:hover {
   color: red;
 }
+
+.Body {
+  min-height: 16em;
+}
