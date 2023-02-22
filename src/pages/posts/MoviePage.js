@@ -54,6 +54,8 @@ const MoviePage = () => {
             {postData.created_at}
           </p>
         </Col>
+      </Row>
+      <Row>
         <Col>
           <CommentsCreate
             post={id}

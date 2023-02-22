@@ -4,6 +4,7 @@ import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import CommentsEdit from "./CommentsEdit";
+import styles from "../../styles/Comments.module.css";
 
 const Comments = (props) => {
   const { owner, updated_at, content, id, setComments } = props;
@@ -30,8 +31,24 @@ const Comments = (props) => {
       <hr />
       <Container>
         <div className="align-self-center ml-2">
-          <span>{owner}</span>
-          <span>{updated_at}</span>
+          <span className={styles.Owner}>{owner}</span>
+          <span className={styles.Date}>{updated_at}</span>
+          <span className="float-right">
+            {is_owner && !showEditForm && (
+              <InputGroup>
+                <DropdownButton
+                  variant="outline-secondary"
+                  id="input-group-dropdown-1"
+                  title=""
+                >
+                  <DropdownItem onClick={() => setShowEditForm(true)}>
+                    Edit
+                  </DropdownItem>
+                  <DropdownItem onClick={handleDelete}>Delete</DropdownItem>
+                </DropdownButton>
+              </InputGroup>
+            )}
+          </span>
           {showEditForm ? (
             <CommentsEdit
               id={id}
@@ -40,24 +57,9 @@ const Comments = (props) => {
               setShowEditForm={setShowEditForm}
             />
           ) : (
-            <p>{content}</p>
+            <p className="pt-2">{content}</p>
           )}
         </div>
-        {is_owner && !showEditForm && (
-          <InputGroup className="flex-row-reverse">
-            <DropdownButton
-              variant="outline-secondary"
-              id="input-group-dropdown-1"
-              className="flex-row-reverse"
-              title=""
-            >
-              <DropdownItem onClick={() => setShowEditForm(true)}>
-                Edit
-              </DropdownItem>
-              <DropdownItem onClick={handleDelete}>Delete</DropdownItem>
-            </DropdownButton>
-          </InputGroup>
-        )}
       </Container>
     </>
   );
