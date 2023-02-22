@@ -6,7 +6,7 @@ import { useCurrentUser } from "../../context/CurrentUserContext";
 import CommentsEdit from "./CommentsEdit";
 
 const Comments = (props) => {
-  const { owner, updated_at, content, id, setComments, setPostData } = props;
+  const { owner, updated_at, content, id, setComments } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
   const currentUser = useCurrentUser();

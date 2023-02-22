@@ -16,7 +16,11 @@ function App() {
       <NavBar />
       <Container fluid>
         <Routes>
-          <Route exact path="/" element={<PostList />} />
+          <Route
+            exact
+            path="/"
+            element={<PostList message="No results found" />}
+          />
           <Route exact path="/signup" element={<SignUpForm />} />
           <Route exact path="/signin" element={<SignInForm />} />
           <Route export path="/posts/create" element={<CreatePost />} />
