@@ -7,7 +7,7 @@ import { Col, Row, Container, Form, Button, Image } from "react-bootstrap";
 
 import { axiosRes } from "../../api/axiosDefaults";
 
-const CreatePost = () => {
+const CreateReview = () => {
   const [postData, setPostData] = useState({
     title: "",
     genrer: "",
@@ -136,4 +136,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default CreateReview;
