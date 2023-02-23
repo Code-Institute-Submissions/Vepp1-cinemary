@@ -52,7 +52,7 @@ const MoviePage = () => {
               <Image src={postData.image} className={styles.Image} />
             </Col>
             <Col>
-              <h1 className="my-3">{postData.title}</h1>
+              <h1>{postData.title}</h1>
               <p className="text-left">
                 <strong>Genrer:</strong> {postData.genrer}
               </p>

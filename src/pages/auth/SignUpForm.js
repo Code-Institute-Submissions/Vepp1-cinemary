@@ -4,7 +4,15 @@ import { useNavigate } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 
-import { Col, Row, Container, Form, Button, NavLink } from "react-bootstrap";
+import {
+  Col,
+  Row,
+  Container,
+  Form,
+  Button,
+  NavLink,
+  Alert,
+} from "react-bootstrap";
 import axios from "axios";
 
 const SignUpForm = () => {
@@ -15,6 +23,7 @@ const SignUpForm = () => {
   });
   const { username, password1, password2 } = signUpData;
   const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     setSignUpData({
@@ -29,7 +38,7 @@ const SignUpForm = () => {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       navigate("/signin");
     } catch (err) {
-      console.log(err);
+      setErrors(err.response?.data);
     }
   };
 
@@ -51,6 +60,11 @@ const SignUpForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.username?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group className="mb-3" controlId="password1">
               <Form.Label>Password</Form.Label>
@@ -63,6 +77,11 @@ const SignUpForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.password1?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group className="mb-3" controlId="password2">
               <Form.Label>Repeat Password</Form.Label>
@@ -75,6 +94,17 @@ const SignUpForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.password2?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
+
+            {errors.non_field_errors?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Button variant="success" type="submit">
               Sign Up
