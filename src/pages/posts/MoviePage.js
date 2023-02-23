@@ -84,9 +84,7 @@ const MoviePage = () => {
                   />
                 ))
               ) : (
-                <Container>
-                  <Asset spinner />
-                </Container>
+                <p className="py-5">No comments yet!</p>
               )}
             </Col>
           </Row>
