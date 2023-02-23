@@ -9,6 +9,7 @@ import SignInForm from "./pages/auth/SignInForm";
 import CreateReview from "./pages/posts/CreateReview";
 import EditReview from "./pages/posts/EditReview";
 import MoviePage from "./pages/posts/MoviePage";
+import ChangePassword from "./pages/auth/ChangePassword";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route export path="/posts/create" element={<CreateReview />} />
           <Route export path="/edit/:id" element={<EditReview />} />
           <Route export path="/posts/:id" element={<MoviePage />} />
+          <Route export path="/credentials" element={<ChangePassword />} />
         </Routes>
       </Container>
     </div>
