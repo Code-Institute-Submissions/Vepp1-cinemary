@@ -5,6 +5,8 @@ import Asset from "../../components/Asset";
 import { Col, Row, Container, Form } from "react-bootstrap";
 import Movie from "./Movie";
 import styles from "../../styles/MovieList.module.css";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 const MovieList = () => {
   const [posts, setPosts] = useState({ results: [] });
@@ -42,28 +44,30 @@ const MovieList = () => {
               onChange={(event) => setQuery(event.target.value)}
             />
           </Form>
+          {hasLoad ? (
+            <>
+              {posts.results.length ? (
+                <InfiniteScroll
+                  children={posts.results.map((post) => (
+                    <Movie key={post.id} {...post} setPosts={setPosts} />
+                  ))}
+                  dataLength={posts.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!posts.next}
+                  next={() => fetchMoreData(posts, setPosts)}
+                />
+              ) : (
+                <Container>
+                  <Asset message />
+                </Container>
+              )}
+            </>
+          ) : (
+            <Container>
+              <Asset spinner />
+            </Container>
+          )}
         </Col>
-      </Row>
-      <Row>
-        {hasLoad ? (
-          <>
-            {posts.results.length ? (
-              posts.results.map((post) => (
-                <Col>
-                  <Movie key={post.id} {...post} setPosts={setPosts} />
-                </Col>
-              ))
-            ) : (
-              <Container>
-                <Asset message />
-              </Container>
-            )}
-          </>
-        ) : (
-          <Container>
-            <Asset spinner />
-          </Container>
-        )}
       </Row>
     </>
   );

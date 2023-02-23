@@ -43,18 +43,18 @@ export const CurrentUserProvider = ({ children }) => {
         }
         return config;
       },
-      (error) => {
-        return Promise.reject(error);
+      (err) => {
+        return Promise.reject(err);
       }
     );
 
     axiosRes.interceptors.response.use(
       (response) => response,
-      async (error) => {
-        if (error.response?.status === 401) {
+      async (err) => {
+        if (err.response?.status === 401) {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
-          } catch (error) {
+          } catch (err) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
                 navigate("/signin");
@@ -63,9 +63,9 @@ export const CurrentUserProvider = ({ children }) => {
             });
             removeTokenTimestamp();
           }
-          return axios(error.config);
+          return axios(err.config);
         }
-        return Promise.reject(error);
+        return Promise.reject(err);
       }
     );
   }, [navigate]);
