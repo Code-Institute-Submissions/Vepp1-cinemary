@@ -6,8 +6,10 @@ import styles from "../../styles/SignInUpForm.module.css";
 import { Col, Row, Container, Form, Button, Image } from "react-bootstrap";
 
 import { axiosRes } from "../../api/axiosDefaults";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const CreateReview = () => {
+  useRedirect("loggedOut");
   const [postData, setPostData] = useState({
     title: "",
     genrer: "",
