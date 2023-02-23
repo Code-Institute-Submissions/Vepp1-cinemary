@@ -38,7 +38,6 @@ const NavBar = () => {
             <>
               <Nav.Link href="/">Reviews</Nav.Link>
               <Nav.Link href="/posts/create">Create</Nav.Link>
-              {console.log(currentUser.pk)}
               <NavDropdown
                 variant="dark"
                 className=""

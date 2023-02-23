@@ -16,8 +16,10 @@ import {
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
 import { setTokenTimestamp } from "../../utils/utils";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignInForm = () => {
+  useRedirect("loggedIn");
   const setCurrentUser = useSetCurrentUser();
 
   const [signInData, setSignInData] = useState({

@@ -5,7 +5,6 @@ import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 
 import { Col, Row, Container, Form, Button, Alert } from "react-bootstrap";
-import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../context/CurrentUserContext";
@@ -37,7 +36,6 @@ const ChangePassword = () => {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       navigate(-1);
     } catch (err) {
-      // console.log(err);
       setErrors(err.response?.data);
     }
   };
