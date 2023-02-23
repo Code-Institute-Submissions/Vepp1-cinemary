@@ -1,4 +1,4 @@
-import { NavDropdown } from "react-bootstrap";
+import { NavDropdown, NavLink } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { axiosReq } from "../api/axiosDefaults";
@@ -8,10 +8,12 @@ import {
 } from "../context/CurrentUserContext";
 import { removeTokenTimestamp } from "../utils/utils";
 import styles from "../styles/NavBar.module.css";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -36,7 +38,7 @@ const NavBar = () => {
             <>
               <Nav.Link href="/">Reviews</Nav.Link>
               <Nav.Link href="/posts/create">Create</Nav.Link>
-
+              {console.log(currentUser.pk)}
               <NavDropdown
                 variant="dark"
                 className=""
@@ -48,7 +50,12 @@ const NavBar = () => {
                   </Nav.Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Nav.Link className="text-dark">Change Credentials</Nav.Link>
+                  <NavLink
+                    onClick={() => navigate(`/profiles/${currentUser.pk}`)}
+                    className="text-dark"
+                  >
+                    Change Credentials
+                  </NavLink>
                 </NavDropdown.Item>
               </NavDropdown>
             </>

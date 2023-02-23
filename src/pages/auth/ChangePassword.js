@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
@@ -7,21 +7,26 @@ import appStyles from "../../App.module.css";
 import { Col, Row, Container, Form, Button, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
+import { axiosRes } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../context/CurrentUserContext";
 
 const ChangePassword = () => {
   useRedirect("loggedOut");
-  const [signUpData, setSignUpData] = useState({
-    username: "",
-    password1: "",
-    password2: "",
-  });
-  const { password1, password2 } = signUpData;
   const navigate = useNavigate();
+  const { id } = useParams();
+  const currentUser = useCurrentUser();
+
+  const [userData, setUserData] = useState({
+    new_password1: "",
+    new_password2: "",
+  });
+  const { new_password1, new_password2 } = userData;
+
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
-    setSignUpData({
-      ...signUpData,
+    setUserData({
+      ...userData,
       [event.target.name]: event.target.value,
     });
   };
@@ -29,9 +34,10 @@ const ChangePassword = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/registration/", signUpData);
-      navigate("/signin");
+      await axiosRes.post("/dj-rest-auth/password/change/", userData);
+      navigate(-1);
     } catch (err) {
+      // console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -48,9 +54,9 @@ const ChangePassword = () => {
               <Form.Control
                 type="password"
                 placeholder="Password"
-                name="password1"
+                name="new_password1"
                 className={styles.Input}
-                value={password1}
+                value={new_password1}
                 onChange={handleChange}
               />
             </Form.Group>
@@ -65,9 +71,9 @@ const ChangePassword = () => {
               <Form.Control
                 type="password"
                 placeholder="Password"
-                name="password2"
+                name="new_password2"
                 className={styles.Input}
-                value={password2}
+                value={new_password2}
                 onChange={handleChange}
               />
             </Form.Group>
