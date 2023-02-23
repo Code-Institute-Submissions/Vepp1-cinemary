@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
@@ -41,6 +41,12 @@ const ChangePassword = () => {
       setErrors(err.response?.data);
     }
   };
+
+  useEffect(() => {
+    if (currentUser?.pk?.toString() !== id) {
+      navigate(-1);
+    }
+  }, [currentUser, navigate, id]);
 
   return (
     <Row className={styles.Row}>
