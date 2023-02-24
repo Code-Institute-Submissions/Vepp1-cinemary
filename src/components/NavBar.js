@@ -73,18 +73,14 @@ const NavBar = () => {
                   </>
                 }
               >
-                <NavDropdown.Item>
-                  <NavLink className="text-dark" onClick={handleLogout}>
-                    Logout
-                  </NavLink>
+                <NavDropdown.Item className="text-dark" onClick={handleLogout}>
+                  Logout
                 </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <NavLink
-                    to={`/profiles/${currentUser.pk}`}
-                    className="text-dark"
-                  >
-                    Change Credentials
-                  </NavLink>
+                <NavDropdown.Item
+                  onClick={() => navigate(`/profiles/${currentUser.pk}`)}
+                  className="text-dark"
+                >
+                  Change Credentials
                 </NavDropdown.Item>
               </NavDropdown>
             </>
