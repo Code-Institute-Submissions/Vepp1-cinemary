@@ -74,9 +74,18 @@ const NavBar = () => {
             </>
           ) : (
             <>
-              <Nav.Link href="/">Reviews</Nav.Link>
-              <Nav.Link href="/signin">Sign in</Nav.Link>
-              <Nav.Link href="/signup">Sign up</Nav.Link>
+              <NavLink to="/" className={styles.Navlink}>
+                <i class="fa-solid fa-list" />
+                Reviews
+              </NavLink>
+              <NavLink to="/signin" className={styles.Navlink}>
+                <i class="fa-solid fa-right-to-bracket" />
+                Sign in
+              </NavLink>
+              <NavLink to="/signup" className={styles.Navlink}>
+                <i class="fa-solid fa-user-plus" />
+                Sign up
+              </NavLink>
             </>
           )}
         </Nav>
