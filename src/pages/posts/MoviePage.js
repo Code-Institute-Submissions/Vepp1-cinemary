@@ -45,55 +45,57 @@ const MoviePage = () => {
 
   return (
     <>
-      {hasLoad ? (
-        <Container className="mt-5 pt-5">
-          <Row className="text-justify">
-            <Col>
-              <Image src={postData.image} className={styles.Image} />
-            </Col>
-            <Col>
-              <h1>{postData.title}</h1>
-              <p className="text-left">
-                <strong>Genrer:</strong> {postData.genrer}
-              </p>
-              <p>{postData.content}</p>
-              <p>
-                Created by: <strong>{postData.owner}</strong> on{" "}
-                {postData.created_at}
-              </p>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              {currentUser ? (
-                <CommentsCreate
-                  post={id}
-                  setPostData={setPostData}
-                  setComments={setComments}
-                />
-              ) : null}
-
-              {comments.results.length ? (
-                comments.results.map((comment) => (
-                  <Comments
-                    key={comment.id}
-                    {...comment}
-                    postData={postData}
+      <Container className="mt-5 pt-5">
+        {hasLoad ? (
+          <>
+            <Row className="text-justify">
+              <Col>
+                <Image src={postData.image} className={styles.Image} />
+              </Col>
+              <Col>
+                <h1>{postData.title}</h1>
+                <p className="text-left">
+                  <strong>Genrer:</strong> {postData.genrer}
+                </p>
+                <p>{postData.content}</p>
+                <p>
+                  Created by: <strong>{postData.owner}</strong> on{" "}
+                  {postData.created_at}
+                </p>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                {currentUser ? (
+                  <CommentsCreate
+                    post={id}
                     setPostData={setPostData}
                     setComments={setComments}
                   />
-                ))
-              ) : (
-                <p className="py-5">No comments yet!</p>
-              )}
-            </Col>
-          </Row>
-        </Container>
-      ) : (
-        <Container className="mt-5">
-          <Asset spinner />
-        </Container>
-      )}
+                ) : null}
+
+                {comments.results.length ? (
+                  comments.results.map((comment) => (
+                    <Comments
+                      key={comment.id}
+                      {...comment}
+                      postData={postData}
+                      setPostData={setPostData}
+                      setComments={setComments}
+                    />
+                  ))
+                ) : (
+                  <p className="py-5">No comments yet!</p>
+                )}
+              </Col>
+            </Row>
+          </>
+        ) : (
+          <Container>
+            <Asset spinner />
+          </Container>
+        )}
+      </Container>
     </>
   );
 };
