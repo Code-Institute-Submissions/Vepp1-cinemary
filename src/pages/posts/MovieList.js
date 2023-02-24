@@ -50,7 +50,7 @@ const MovieList = () => {
             {posts.results.length ? (
               <InfiniteScroll
                 children={posts.results.map((post) => (
-                  <Col md={6} lg={4} className="d-inline-flex p-2">
+                  <Col sm={4} className="d-inline-flex p-2">
                     <Movie key={post.id} {...post} setPosts={setPosts} />
                   </Col>
                 ))}
