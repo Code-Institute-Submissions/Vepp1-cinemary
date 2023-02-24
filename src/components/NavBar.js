@@ -36,20 +36,20 @@ const NavBar = () => {
         <Nav className={styles.Nav}>
           {currentUser ? (
             <>
-              <Nav.Link href="/">
+              <Nav.Link className={styles.Icons} href="/">
                 <i class="fa-solid fa-list" />
                 Reviews
               </Nav.Link>
-              <Nav.Link href="/posts/create">
+              <Nav.Link className={styles.Icons} href="/posts/create">
                 <i class="fa-solid fa-pencil" />
                 Create
               </Nav.Link>
               <NavDropdown
                 variant="dark"
-                className=""
+                className={styles.Icons}
                 title={
                   <>
-                    <i class="fa-solid fa-user" /> {currentUser?.username}
+                    <i class={`fa-solid fa-user`} /> {currentUser?.username}
                   </>
                 }
               >
