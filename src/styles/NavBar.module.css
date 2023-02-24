@@ -30,15 +30,6 @@
   color: rgba(255, 255, 255, 0.75);
 }
 
-.Navlink i {
-  color: rgba(255, 255, 255, 0.5);
-  padding: 5px;
-}
-
 .Navlink:hover i {
   color: rgba(255, 255, 255, 0.75);
-}
-
-.Active {
-  color: red;
 }

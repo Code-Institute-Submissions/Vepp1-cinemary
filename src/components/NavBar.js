@@ -36,14 +36,30 @@ const NavBar = () => {
         <Nav className={styles.Nav}>
           {currentUser ? (
             <>
-              <NavLink className={styles.Navlink} to="/" activeClassName="/">
+              <NavLink
+                className={styles.Navlink}
+                to="/"
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        color: "#fff",
+                      }
+                    : undefined
+                }
+              >
                 <i className="fa-solid fa-list" />
                 Reviews
               </NavLink>
               <NavLink
                 className={styles.Navlink}
                 to="/posts/create"
-                activeClassName={styles.Active}
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        color: "#fff",
+                      }
+                    : undefined
+                }
               >
                 <i className="fa-solid fa-pencil" />
                 Create
@@ -64,7 +80,7 @@ const NavBar = () => {
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <NavLink
-                    onClick={() => navigate(`/profiles/${currentUser.pk}`)}
+                    to={`/profiles/${currentUser.pk}`}
                     className="text-dark"
                   >
                     Change Credentials
@@ -74,15 +90,45 @@ const NavBar = () => {
             </>
           ) : (
             <>
-              <NavLink to="/" className={styles.Navlink}>
+              <NavLink
+                to="/"
+                className={styles.Navlink}
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        color: "#fff",
+                      }
+                    : undefined
+                }
+              >
                 <i className="fa-solid fa-list" />
                 Reviews
               </NavLink>
-              <NavLink to="/signin" className={styles.Navlink}>
+              <NavLink
+                to="/signin"
+                className={styles.Navlink}
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        color: "#fff",
+                      }
+                    : undefined
+                }
+              >
                 <i className="fa-solid fa-right-to-bracket" />
                 Sign in
               </NavLink>
-              <NavLink to="/signup" className={styles.Navlink}>
+              <NavLink
+                to="/signup"
+                className={styles.Navlink}
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        color: "#fff",
+                      }
+                    : undefined
+                }
+              >
                 <i className="fa-solid fa-user-plus" />
                 Sign up
               </NavLink>
