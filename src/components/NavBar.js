@@ -37,7 +37,7 @@ const NavBar = () => {
           {currentUser ? (
             <>
               <NavLink className={styles.Navlink} to="/" activeClassName="/">
-                <i class="fa-solid fa-list" />
+                <i className="fa-solid fa-list" />
                 Reviews
               </NavLink>
               <NavLink
@@ -45,7 +45,7 @@ const NavBar = () => {
                 to="/posts/create"
                 activeClassName={styles.Active}
               >
-                <i class="fa-solid fa-pencil" />
+                <i className="fa-solid fa-pencil" />
                 Create
               </NavLink>
               <NavDropdown
@@ -53,7 +53,7 @@ const NavBar = () => {
                 className={styles.Navlink}
                 title={
                   <>
-                    <i class={`fa-solid fa-user`} /> {currentUser?.username}
+                    <i className={`fa-solid fa-user`} /> {currentUser?.username}
                   </>
                 }
               >
@@ -75,15 +75,15 @@ const NavBar = () => {
           ) : (
             <>
               <NavLink to="/" className={styles.Navlink}>
-                <i class="fa-solid fa-list" />
+                <i className="fa-solid fa-list" />
                 Reviews
               </NavLink>
               <NavLink to="/signin" className={styles.Navlink}>
-                <i class="fa-solid fa-right-to-bracket" />
+                <i className="fa-solid fa-right-to-bracket" />
                 Sign in
               </NavLink>
               <NavLink to="/signup" className={styles.Navlink}>
-                <i class="fa-solid fa-user-plus" />
+                <i className="fa-solid fa-user-plus" />
                 Sign up
               </NavLink>
             </>

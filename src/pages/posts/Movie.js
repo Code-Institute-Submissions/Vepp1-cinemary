@@ -85,9 +85,11 @@ const Movie = (props) => {
             </span>
           </Card.Title>
           <Card.Text className="mt-2">
-            <p>
+            <span>
               <strong>Genrer:</strong> {props.genrer}
-            </p>
+            </span>
+
+            <br />
 
             {currentUser ? (
               props.like_id ? (
@@ -107,19 +109,17 @@ const Movie = (props) => {
                 <i className={`fas fa-heart ${styles.LoggedOut}`} />
               </span>
             )}
-            <span>
-              {props.comments_count}
-              <i className="fa-regular fa-comment" />
-            </span>
 
-            <div className={styles.Align}>
-              <div className={styles.Owner}>
-                <p>
-                  <em>Created by:</em> <strong>{props.owner}</strong> -{" "}
-                  {props.created_at}{" "}
-                </p>
-              </div>
-            </div>
+            {props.comments_count}
+            <span>
+              <i className={`fa-regular fa-comment ${styles.Comments}`} />
+            </span>
+            <br />
+
+            <span className={styles.Owner}>
+              <em>Created by:</em> <strong>{props.owner}</strong> -{" "}
+              {props.created_at}{" "}
+            </span>
           </Card.Text>
         </Card.Body>
       </Card>

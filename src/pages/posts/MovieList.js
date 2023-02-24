@@ -51,7 +51,12 @@ const MovieList = () => {
               <Container fluid>
                 <InfiniteScroll
                   children={posts.results.map((post) => (
-                    <Col md={6} lg={4} className="d-inline-flex p-2">
+                    <Col
+                      key={post.id}
+                      md={6}
+                      lg={4}
+                      className="d-inline-flex p-2"
+                    >
                       <Movie key={post.id} {...post} setPosts={setPosts} />
                     </Col>
                   ))}
