@@ -18,17 +18,27 @@
 .Nav {
   margin: auto;
   font-weight: 500;
+  align-items: center;
 }
 
-.Active i {
-  color: red;
-}
-
-.Icons i {
+.Navlink {
   color: rgba(255, 255, 255, 0.5);
   padding: 5px;
 }
 
-.Icons:hover i {
+.Navlink:hover {
   color: rgba(255, 255, 255, 0.75);
+}
+
+.Navlink i {
+  color: rgba(255, 255, 255, 0.5);
+  padding: 5px;
+}
+
+.Navlink:hover i {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.Active {
+  color: red;
 }

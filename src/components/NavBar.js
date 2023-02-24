@@ -1,4 +1,4 @@
-import { NavDropdown, NavLink } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { axiosReq } from "../api/axiosDefaults";
@@ -8,7 +8,7 @@ import {
 } from "../context/CurrentUserContext";
 import { removeTokenTimestamp } from "../utils/utils";
 import styles from "../styles/NavBar.module.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -36,17 +36,21 @@ const NavBar = () => {
         <Nav className={styles.Nav}>
           {currentUser ? (
             <>
-              <Nav.Link className={styles.Icons} href="/">
+              <NavLink className={styles.Navlink} to="/" activeClassName="/">
                 <i class="fa-solid fa-list" />
                 Reviews
-              </Nav.Link>
-              <Nav.Link className={styles.Icons} href="/posts/create">
+              </NavLink>
+              <NavLink
+                className={styles.Navlink}
+                to="/posts/create"
+                activeClassName={styles.Active}
+              >
                 <i class="fa-solid fa-pencil" />
                 Create
-              </Nav.Link>
+              </NavLink>
               <NavDropdown
                 variant="dark"
-                className={styles.Icons}
+                className={styles.Navlink}
                 title={
                   <>
                     <i class={`fa-solid fa-user`} /> {currentUser?.username}
@@ -54,9 +58,9 @@ const NavBar = () => {
                 }
               >
                 <NavDropdown.Item>
-                  <Nav.Link className="text-dark" onClick={handleLogout}>
+                  <NavLink className="text-dark" onClick={handleLogout}>
                     Logout
-                  </Nav.Link>
+                  </NavLink>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <NavLink
