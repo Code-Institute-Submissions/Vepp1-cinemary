@@ -44,30 +44,32 @@ const MovieList = () => {
               onChange={(event) => setQuery(event.target.value)}
             />
           </Form>
-          {hasLoad ? (
-            <>
-              {posts.results.length ? (
-                <InfiniteScroll
-                  children={posts.results.map((post) => (
-                    <Movie key={post.id} {...post} setPosts={setPosts} />
-                  ))}
-                  dataLength={posts.results.length}
-                  loader={<Asset spinner />}
-                  hasMore={!!posts.next}
-                  next={() => fetchMoreData(posts, setPosts)}
-                />
-              ) : (
-                <Container>
-                  <Asset message />
-                </Container>
-              )}
-            </>
-          ) : (
-            <Container>
-              <Asset spinner />
-            </Container>
-          )}
         </Col>
+        {hasLoad ? (
+          <>
+            {posts.results.length ? (
+              <InfiniteScroll
+                children={posts.results.map((post) => (
+                  <Col sm={4} className="d-inline-flex p-2">
+                    <Movie key={post.id} {...post} setPosts={setPosts} />
+                  </Col>
+                ))}
+                dataLength={posts.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!posts.next}
+                next={() => fetchMoreData(posts, setPosts)}
+              />
+            ) : (
+              <Container>
+                <Asset message />
+              </Container>
+            )}
+          </>
+        ) : (
+          <Container>
+            <Asset spinner />
+          </Container>
+        )}
       </Row>
     </>
   );
