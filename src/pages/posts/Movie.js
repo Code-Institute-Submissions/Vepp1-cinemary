@@ -109,7 +109,7 @@ const Movie = (props) => {
             )}
             <span>
               {props.comments_count}
-              <i className={`fa-regular fa-comment ${styles.Comments}`} />
+              <i className="fa-regular fa-comment" />
             </span>
 
             <div className={styles.Align}>
