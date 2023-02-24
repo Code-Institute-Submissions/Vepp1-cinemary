@@ -7,6 +7,7 @@ import { Col, Row, Container, Form, Button, Image } from "react-bootstrap";
 
 import { axiosRes } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
+import { useNavigate } from "react-router-dom";
 
 const CreateReview = () => {
   useRedirect("loggedOut");
@@ -16,6 +17,7 @@ const CreateReview = () => {
     content: "",
     image: "",
   });
+  const navigate = useNavigate();
 
   const imageUpload = useRef(null);
 
@@ -47,6 +49,7 @@ const CreateReview = () => {
 
     try {
       await axiosRes.post("/posts/", formData);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
