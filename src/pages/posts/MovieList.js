@@ -33,24 +33,24 @@ const MovieList = ({ filter = "" }) => {
 
   return (
     <>
-      <Row>
-        <Col sm={10} className="offset-1 pt-5">
-          <Form
-            onSubmit={(event) => event.preventDefault()}
-            className={`pt-5 ${styles.SearchBar}`}
-          >
-            <Form.Control
-              type="text"
-              className="mr-sm-2 text-center"
-              placeholder="Search reviews by title, genrer or author username"
-              onChange={(event) => setQuery(event.target.value)}
-            />
-          </Form>
-        </Col>
-        {hasLoad ? (
-          <>
-            {posts.results.length ? (
-              <Container fluid>
+      <Container>
+        <Row>
+          <Col sm={12} xxl={10} className="pt-5">
+            <Form
+              onSubmit={(event) => event.preventDefault()}
+              className={`pt-5 ${styles.SearchBar}`}
+            >
+              <Form.Control
+                type="text"
+                className="mr-sm-2 text-center"
+                placeholder="Search reviews by title, genrer or author username"
+                onChange={(event) => setQuery(event.target.value)}
+              />
+            </Form>
+          </Col>
+          {hasLoad ? (
+            <>
+              {posts.results.length ? (
                 <InfiniteScroll
                   children={posts.results.map((post) => (
                     <Col
@@ -67,19 +67,19 @@ const MovieList = ({ filter = "" }) => {
                   hasMore={!!posts.next}
                   next={() => fetchMoreData(posts, setPosts)}
                 />
-              </Container>
-            ) : (
-              <Container>
-                <Asset message />
-              </Container>
-            )}
-          </>
-        ) : (
-          <Container>
-            <Asset spinner />
-          </Container>
-        )}
-      </Row>
+              ) : (
+                <Container>
+                  <Asset message />
+                </Container>
+              )}
+            </>
+          ) : (
+            <Container>
+              <Asset spinner />
+            </Container>
+          )}
+        </Row>
+      </Container>
     </>
   );
 };
