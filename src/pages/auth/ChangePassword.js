@@ -41,7 +41,7 @@ const ChangePassword = () => {
   };
 
   useEffect(() => {
-    if (currentUser?.pk?.toString() !== id) {
+    if (currentUser?.profile_id?.toString() !== id) {
       navigate(-1);
     }
   }, [currentUser, navigate, id]);

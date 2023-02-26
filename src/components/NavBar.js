@@ -91,7 +91,9 @@ const NavBar = () => {
                   Logout
                 </NavDropdown.Item>
                 <NavDropdown.Item
-                  onClick={() => navigate(`/profiles/${currentUser.pk}`)}
+                  onClick={() =>
+                    navigate(`/profiles/${currentUser.profile_id}`)
+                  }
                   className="text-dark"
                 >
                   Change Credentials
