@@ -1,4 +1,4 @@
-import { NavDropdown } from "react-bootstrap";
+import { Container, NavDropdown } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { axiosReq } from "../api/axiosDefaults";
@@ -27,127 +27,133 @@ const NavBar = () => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
-      <Navbar.Brand className={styles.Logo} href="/">
-        Cinemary
-        <i className="fa-solid fa-film" />
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className={styles.Nav}>
-          {currentUser ? (
-            <>
-              <NavLink
-                className={styles.Navlink}
-                to="/"
-                style={({ isActive }) =>
-                  isActive
-                    ? {
-                        color: "#fff",
-                      }
-                    : undefined
-                }
-              >
-                <i className="fa-solid fa-list" />
-                Reviews
-              </NavLink>
-              <NavLink
-                className={styles.Navlink}
-                to="/liked"
-                style={({ isActive }) =>
-                  isActive
-                    ? {
-                        color: "#fff",
-                      }
-                    : undefined
-                }
-              >
-                <i className="fa-solid fa-heart" />
-                Liked
-              </NavLink>
-              <NavLink
-                className={styles.Navlink}
-                to="/posts/create"
-                style={({ isActive }) =>
-                  isActive
-                    ? {
-                        color: "#fff",
-                      }
-                    : undefined
-                }
-              >
-                <i className="fa-solid fa-pencil" />
-                Create
-              </NavLink>
-              <NavDropdown
-                variant="dark"
-                className={styles.Navlink}
-                title={
-                  <>
-                    <i className={`fa-solid fa-user`} /> {currentUser?.username}
-                  </>
-                }
-              >
-                <NavDropdown.Item className="text-dark" onClick={handleLogout}>
-                  Logout
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  onClick={() =>
-                    navigate(`/profiles/${currentUser.profile_id}`)
+      <Container>
+        <Navbar.Brand className={`mx-auto ${styles.Logo}`} href="/">
+          Cinemary
+          <i className="fa-solid fa-film" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className={`ml-auto ${styles.Nav}`}>
+            {currentUser ? (
+              <>
+                <NavLink
+                  className={styles.Navlink}
+                  to="/"
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: "#fff",
+                        }
+                      : undefined
                   }
-                  className="text-dark"
                 >
-                  Change Credentials
-                </NavDropdown.Item>
-              </NavDropdown>
-            </>
-          ) : (
-            <>
-              <NavLink
-                to="/"
-                className={styles.Navlink}
-                style={({ isActive }) =>
-                  isActive
-                    ? {
-                        color: "#fff",
-                      }
-                    : undefined
-                }
-              >
-                <i className="fa-solid fa-list" />
-                Reviews
-              </NavLink>
-              <NavLink
-                to="/signin"
-                className={styles.Navlink}
-                style={({ isActive }) =>
-                  isActive
-                    ? {
-                        color: "#fff",
-                      }
-                    : undefined
-                }
-              >
-                <i className="fa-solid fa-right-to-bracket" />
-                Sign in
-              </NavLink>
-              <NavLink
-                to="/signup"
-                className={styles.Navlink}
-                style={({ isActive }) =>
-                  isActive
-                    ? {
-                        color: "#fff",
-                      }
-                    : undefined
-                }
-              >
-                <i className="fa-solid fa-user-plus" />
-                Sign up
-              </NavLink>
-            </>
-          )}
-        </Nav>
-      </Navbar.Collapse>
+                  <i className="fa-solid fa-list" />
+                  Reviews
+                </NavLink>
+                <NavLink
+                  className={styles.Navlink}
+                  to="/liked"
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: "#fff",
+                        }
+                      : undefined
+                  }
+                >
+                  <i className="fa-solid fa-heart" />
+                  Liked
+                </NavLink>
+                <NavLink
+                  className={styles.Navlink}
+                  to="/posts/create"
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: "#fff",
+                        }
+                      : undefined
+                  }
+                >
+                  <i className="fa-solid fa-pencil" />
+                  Create
+                </NavLink>
+                <NavDropdown
+                  variant="dark"
+                  className={styles.Navlink}
+                  title={
+                    <>
+                      <i className={`fa-solid fa-user`} />{" "}
+                      {currentUser?.username}
+                    </>
+                  }
+                >
+                  <NavDropdown.Item
+                    className="text-dark"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    onClick={() =>
+                      navigate(`/profiles/${currentUser.profile_id}`)
+                    }
+                    className="text-dark"
+                  >
+                    Change Credentials
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
+            ) : (
+              <>
+                <NavLink
+                  to="/"
+                  className={styles.Navlink}
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: "#fff",
+                        }
+                      : undefined
+                  }
+                >
+                  <i className="fa-solid fa-list" />
+                  Reviews
+                </NavLink>
+                <NavLink
+                  to="/signin"
+                  className={styles.Navlink}
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: "#fff",
+                        }
+                      : undefined
+                  }
+                >
+                  <i className="fa-solid fa-right-to-bracket" />
+                  Sign in
+                </NavLink>
+                <NavLink
+                  to="/signup"
+                  className={styles.Navlink}
+                  style={({ isActive }) =>
+                    isActive
+                      ? {
+                          color: "#fff",
+                        }
+                      : undefined
+                  }
+                >
+                  <i className="fa-solid fa-user-plus" />
+                  Sign up
+                </NavLink>
+              </>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 };
