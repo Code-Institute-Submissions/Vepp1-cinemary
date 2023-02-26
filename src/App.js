@@ -37,6 +37,7 @@ function App() {
           <Route export path="/edit/:id" element={<EditReview />} />
           <Route export path="/posts/:id" element={<MoviePage />} />
           <Route export path="/profiles/:id" element={<ChangePassword />} />
+          <Route path="*" element={<MovieList />} />
         </Routes>
       </Container>
     </div>
