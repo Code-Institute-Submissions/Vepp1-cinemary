@@ -10,14 +10,27 @@ import CreateReview from "./pages/posts/CreateReview";
 import EditReview from "./pages/posts/EditReview";
 import MoviePage from "./pages/posts/MoviePage";
 import ChangePassword from "./pages/auth/ChangePassword";
+import { useCurrentUser } from "./context/CurrentUserContext";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+
   return (
     <div className="App">
       <NavBar />
       <Container fluid>
         <Routes>
           <Route exact path="/" element={<MovieList />} />
+          <Route
+            exact
+            path="/liked"
+            element={
+              <MovieList
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+              />
+            }
+          />
           <Route exact path="/signup" element={<SignUpForm />} />
           <Route exact path="/signin" element={<SignInForm />} />
           <Route export path="/posts/create" element={<CreateReview />} />

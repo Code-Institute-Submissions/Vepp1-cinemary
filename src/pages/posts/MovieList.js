@@ -8,7 +8,7 @@ import styles from "../../styles/MovieList.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
-const MovieList = () => {
+const MovieList = ({ filter = "" }) => {
   const [posts, setPosts] = useState({ results: [] });
   const { pathname } = useLocation();
   const [hasLoad, setHasLoad] = useState(false);
@@ -17,7 +17,7 @@ const MovieList = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?search=${query}`);
+        const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
         setPosts(data);
         setHasLoad(true);
       } catch (err) {
@@ -27,7 +27,7 @@ const MovieList = () => {
 
     setHasLoad(false);
     fetchPosts();
-  }, [pathname, query]);
+  }, [pathname, query, filter]);
 
   return (
     <>
