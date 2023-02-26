@@ -13,7 +13,7 @@ const CreateReview = () => {
   useRedirect("loggedOut");
   const [postData, setPostData] = useState({
     title: "",
-    genrer: "",
+    genre: "",
     content: "",
     image: "",
   });
@@ -43,7 +43,7 @@ const CreateReview = () => {
     const formData = new FormData();
 
     formData.append("title", postData.title);
-    formData.append("genrer", postData.genrer);
+    formData.append("genre", postData.genre);
     formData.append("content", postData.content);
     formData.append("image", imageUpload.current.files[0]);
 
@@ -74,14 +74,14 @@ const CreateReview = () => {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="genrer">
-              <Form.Label>Genrer</Form.Label>
+            <Form.Group className="mb-3" controlId="genre">
+              <Form.Label>Genre</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="genrer"
-                name="genrer"
+                placeholder="genre"
+                name="genre"
                 className={styles.Input}
-                value={postData.genrer}
+                value={postData.genre}
                 onChange={handleChange}
               />
             </Form.Group>

@@ -11,7 +11,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const EditReview = () => {
   const [postData, setPostData] = useState({
     title: "",
-    genrer: "",
+    genre: "",
     content: "",
     image: "",
   });
@@ -42,7 +42,7 @@ const EditReview = () => {
     const formData = new FormData();
 
     formData.append("title", postData.title);
-    formData.append("genrer", postData.genrer);
+    formData.append("genre", postData.genre);
     formData.append("content", postData.content);
 
     if (imageUpload?.current?.files[0]) {
@@ -61,10 +61,10 @@ const EditReview = () => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`);
-        const { title, content, genrer, image, is_owner } = data;
+        const { title, content, genre, image, is_owner } = data;
 
         is_owner
-          ? setPostData({ title, content, image, genrer })
+          ? setPostData({ title, content, image, genre })
           : navigate("/");
       } catch (error) {
         console.log(error);
@@ -94,14 +94,14 @@ const EditReview = () => {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="genrer">
-              <Form.Label>Genrer</Form.Label>
+            <Form.Group className="mb-3" controlId="genre">
+              <Form.Label>Genre</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="genrer"
-                name="genrer"
+                placeholder="genre"
+                name="genre"
                 className={styles.Input}
-                value={postData.genrer}
+                value={postData.genre}
                 onChange={handleChange}
               />
             </Form.Group>

@@ -86,7 +86,7 @@ const Movie = (props) => {
           </Card.Title>
           <Card.Text className="mt-2">
             <span>
-              <strong>Genrer:</strong> {props.genrer}
+              <strong>Genre:</strong> {props.genre}
             </span>
 
             <br />
