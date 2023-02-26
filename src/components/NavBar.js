@@ -52,6 +52,20 @@ const NavBar = () => {
               </NavLink>
               <NavLink
                 className={styles.Navlink}
+                to="/liked"
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        color: "#fff",
+                      }
+                    : undefined
+                }
+              >
+                <i className="fa-solid fa-heart" />
+                Liked
+              </NavLink>
+              <NavLink
+                className={styles.Navlink}
                 to="/posts/create"
                 style={({ isActive }) =>
                   isActive
