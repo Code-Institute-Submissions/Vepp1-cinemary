@@ -9,7 +9,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 
-const MovieList = ({ filter = "" }) => {
+const MovieList = ({ filter = "", message }) => {
   const [posts, setPosts] = useState({ results: [] });
   const { pathname } = useLocation();
   const [hasLoad, setHasLoad] = useState(false);

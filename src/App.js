@@ -21,13 +21,14 @@ function App() {
       <NavBar />
       <Container fluid>
         <Routes>
-          <Route exact path="/" element={<MovieList />} />
+          <Route exact path="/" element={<MovieList message={'No results found!'}/>} />
           <Route
             exact
             path="/liked"
             element={
               <MovieList
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                message={'No results found!'}
               />
             }
           />
