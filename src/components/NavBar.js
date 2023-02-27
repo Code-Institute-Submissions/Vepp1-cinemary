@@ -25,48 +25,26 @@ const NavBar = () => {
     }
   };
 
+  function isActive({ isActive }) {
+    return isActive
+      ? {
+          color: "#fff",
+        }
+      : undefined;
+  }
+
   function LoggedInIcons() {
     return (
       <>
-        <NavLink
-          className={styles.Navlink}
-          to="/"
-          style={({ isActive }) =>
-            isActive
-              ? {
-                  color: "#fff",
-                }
-              : undefined
-          }
-        >
+        <NavLink className={styles.Navlink} to="/" style={isActive}>
           <i className="fa-solid fa-list" />
           Reviews
         </NavLink>
-        <NavLink
-          className={styles.Navlink}
-          to="/liked"
-          style={({ isActive }) =>
-            isActive
-              ? {
-                  color: "#fff",
-                }
-              : undefined
-          }
-        >
+        <NavLink className={styles.Navlink} to="/liked" style={isActive}>
           <i className="fa-solid fa-heart" />
           Liked
         </NavLink>
-        <NavLink
-          className={styles.Navlink}
-          to="/posts/create"
-          style={({ isActive }) =>
-            isActive
-              ? {
-                  color: "#fff",
-                }
-              : undefined
-          }
-        >
+        <NavLink className={styles.Navlink} to="/posts/create" style={isActive}>
           <i className="fa-solid fa-pencil" />
           Create
         </NavLink>
@@ -96,45 +74,15 @@ const NavBar = () => {
   function LoggedOutIcons() {
     return (
       <>
-        <NavLink
-          to="/"
-          className={styles.Navlink}
-          style={({ isActive }) =>
-            isActive
-              ? {
-                  color: "#fff",
-                }
-              : undefined
-          }
-        >
+        <NavLink to="/" className={styles.Navlink} style={isActive}>
           <i className="fa-solid fa-list" />
           Reviews
         </NavLink>
-        <NavLink
-          to="/signin"
-          className={styles.Navlink}
-          style={({ isActive }) =>
-            isActive
-              ? {
-                  color: "#fff",
-                }
-              : undefined
-          }
-        >
+        <NavLink to="/signin" className={styles.Navlink} style={isActive}>
           <i className="fa-solid fa-right-to-bracket" />
           Sign in
         </NavLink>
-        <NavLink
-          to="/signup"
-          className={styles.Navlink}
-          style={({ isActive }) =>
-            isActive
-              ? {
-                  color: "#fff",
-                }
-              : undefined
-          }
-        >
+        <NavLink to="/signup" className={styles.Navlink} style={isActive}>
           <i className="fa-solid fa-user-plus" />
           Sign up
         </NavLink>
