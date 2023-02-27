@@ -70,7 +70,6 @@ const Movie = (props) => {
                   <DropdownButton
                     variant="outline-secondary"
                     id="input-group-dropdown-1"
-                    className="flex-row-reverse"
                     title=""
                   >
                     <DropdownItem onClick={() => navigate(`/edit/${props.id}`)}>
