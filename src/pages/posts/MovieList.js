@@ -33,7 +33,7 @@ const MovieList = ({ filter = "", message }) => {
 
   return (
     <>
-      <Container>
+      <Container className={styles.Movie}>
         <Row>
           <Col sm={12} xxl={10} className="pt-5">
             <Form
