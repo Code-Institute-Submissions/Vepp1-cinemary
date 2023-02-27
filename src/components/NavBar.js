@@ -87,6 +87,7 @@ const NavBar = () => {
                       {currentUser?.username}
                     </>
                   }
+                  className={styles.Dropdown}
                 >
                   <NavDropdown.Item
                     className="text-dark"
