@@ -15,7 +15,6 @@ export const CurrentUserProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const handleMount = async () => {
-    if (!isUserLoggedIn()) return;
     try {
       const { data } = await axiosRes.get("dj-rest-auth/user/");
       setCurrentUser(data);
@@ -23,6 +22,10 @@ export const CurrentUserProvider = ({ children }) => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    handleMount();
+  }, []);
 
   useMemo(() => {
     axiosReq.interceptors.request.use(
@@ -69,10 +72,6 @@ export const CurrentUserProvider = ({ children }) => {
       }
     );
   }, [navigate]);
-
-  useEffect(() => {
-    handleMount();
-  }, []);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
