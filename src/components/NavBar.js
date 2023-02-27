@@ -81,7 +81,6 @@ const NavBar = () => {
                 </NavLink>
                 <NavDropdown
                   variant="dark"
-                  className={styles.Navlink}
                   title={
                     <>
                       <i className={`fa-solid fa-user`} />{" "}
