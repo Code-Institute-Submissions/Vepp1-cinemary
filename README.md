@@ -4,7 +4,7 @@ Cinemary is an online platform where users can read and make reviews about movie
 
 ---
 
-![Desktop View](static/assets/img/mock_up.jpg)
+![Desktop View](assets/comment.png)
 
 ---
 
@@ -16,7 +16,7 @@ The landing page displays all posts created by all users. Every user (logged in 
 
 - User Story: List Posts
 
-![Home Page](static/assets/img/home-page.png)
+![Home Page](assets/movielist.png)
 
 ### Navigation Bar
 
@@ -24,7 +24,7 @@ To navigate through the website, users can use the nav bar. When users are not l
 
 - User Story: Navigation Bar
 
-![Navigation Bar](static/assets/img/navigation-bar.png)
+![Navigation Bar](assets/navbar.png)
 
 ### Sign Up
 
@@ -32,7 +32,7 @@ To be able to use all website features, users must create an account. Allauth wa
 
 - User Story: Create Account
 
-![Login](static/assets/img/login.png)
+![Login](assets/signup.png)
 
 ### Sign in and Logout
 
@@ -40,7 +40,7 @@ After an account has been created, users can login and logout from their account
 
 - User Story: Sign In and Logout
 
-![Login](static/assets/img/login.png)
+![Login](assets/signin.png)
 
 ### Create Post
 
@@ -48,7 +48,7 @@ This page contains crispy form, that allows users to create their reviews. They 
 
 - User Story: Create Post
 
-![Make Order](static/assets/img/make_order.png)
+![Make Order](assets/createreview.png)
 
 ### Edit or Delete Post
 
@@ -56,7 +56,7 @@ If the user is logged in and owns the post, the post on the landing page will di
 
 - User Story: Edit Post and Delete Post.
 
-![My Order](static/assets/img/my_orders.png)
+![My Order](assets/editreview.png)
 
 ### Movie Page
 
@@ -72,7 +72,7 @@ This page is identical to the home page, the difference is that only displays re
 
 - User Story: Filter Post
 
-![My Order](static/assets/img/my_orders.png)
+![My Order](assets/liked.png)
 
 ### Search Posts
 
@@ -80,7 +80,7 @@ On the home page and on the liked page, there is a navbar that allows users to f
 
 - User Story: Search Post and Filter Post
 
-![My Order](static/assets/img/my_orders.png)
+![My Order](assets/searchbar.png)
 
 ### Like and Unlike
 
@@ -88,15 +88,23 @@ All users can see how many likes a review has. But only logged users can click t
 
 - User Story: Like and Unlike Posts
 
-![Edit Order](static/assets/img/edit_order.png)
+![Edit Order]()
 
 ### Create Comment
 
-All users can see the comments. But only logged users can create new comments.
+Only logged in users can create new comments.
 
 - User Story: Create Comment
 
-![Delete Order](static/assets/img/delete.png)
+![Delete Order](assets/commentcreate.png)
+
+### List Comment
+
+All users can see the comment's list.
+
+- User Story: List Comment
+
+![Delete Order](assets/comment.png)
 
 ### Edit or Delete Comment
 
@@ -104,9 +112,7 @@ If a user is logged in and owns a comment, a dropdowm will be displayed that all
 
 - User Story: Edit Comment and Delete Comment
 
-![Delete Order](static/assets/img/delete.png)
-
-![Delete Order](static/assets/img/delete.png)
+![Delete Order](assets/editdrop.png)
 
 ### Infinite Scroll
 
@@ -114,13 +120,11 @@ The page is refreshed as the user scrolls down loading more posts.
 
 - User Story: No Refresh
 
-![Delete Order](static/assets/img/delete.png)
-
 ### Change Password
 
 - Logged in users can access the change credentials page through the dropdown menu on the navbar. There, users are allowed to updated their password.
 
-![Edit Order](static/assets/img/message.png)
+![Edit Order](assets/password.png)
 
 ### To check all features and future features, check the project on [GitHub](https://github.com/users/Vepp1/projects/4)
 
