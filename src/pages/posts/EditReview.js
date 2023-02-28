@@ -76,10 +76,10 @@ const EditReview = () => {
   }, [navigate, id]);
 
   return (
-    <Row className={styles.Row}>
+    <Row className={`pt-5 ${styles.Row}`}>
       <Col className="my-auto mx-auto pt-5" md="8">
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>Create Post</h1>
+          <h1 className={styles.Header}>Edit Review</h1>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="title">
