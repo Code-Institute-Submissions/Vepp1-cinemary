@@ -48,36 +48,33 @@ const MovieList = ({ filter = "", message }) => {
               />
             </Form>
           </Col>
-          {hasLoad ? (
-            <>
-              {posts.results.length ? (
-                <InfiniteScroll
-                  children={posts.results.map((post) => (
-                    <Col
-                      key={post.id}
-                      md={6}
-                      lg={4}
-                      className="d-inline-flex p-2"
-                    >
-                      <Movie key={post.id} {...post} setPosts={setPosts} />
-                    </Col>
-                  ))}
-                  dataLength={posts.results.length}
-                  loader={<Asset spinner />}
-                  hasMore={!!posts.next}
-                  next={() => fetchMoreData(posts, setPosts)}
-                />
-              ) : (
-                <Container>
-                  <Asset message />
-                </Container>
-              )}
-            </>
-          ) : (
-            <Container>
-              <Asset spinner />
-            </Container>
-          )}
+          <Col>
+            {hasLoad ? (
+              <>
+                {posts.results.length ? (
+                  <InfiniteScroll
+                    children={posts.results.map((post) => (
+                      <Col key={post.id} sm={4} className="d-inline-flex p-2">
+                        <Movie key={post.id} {...post} setPosts={setPosts} />
+                      </Col>
+                    ))}
+                    dataLength={posts.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!posts.next}
+                    next={() => fetchMoreData(posts, setPosts)}
+                  />
+                ) : (
+                  <Container>
+                    <Asset message />
+                  </Container>
+                )}
+              </>
+            ) : (
+              <Container>
+                <Asset spinner />
+              </Container>
+            )}
+          </Col>
         </Row>
       </Container>
     </>
