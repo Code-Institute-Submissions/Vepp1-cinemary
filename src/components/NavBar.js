@@ -83,20 +83,23 @@ const NavBar = () => {
   }
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
-      <Container>
-        <Navbar.Brand className={`mx-auto ${styles.Logo}`} href="/">
-          Cinemary
-          <i className="fa-solid fa-clapperboard" />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className={`ml-auto ${styles.Nav}`}>
-            {currentUser ? <LoggedInIcons /> : <LoggedOutIcons />}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <>
+      <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+        <Container>
+          <Navbar.Brand className={`mx-auto ${styles.Logo}`} href="/">
+            Cinemary
+            <i className="fa-solid fa-clapperboard" />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className={`ml-auto ${styles.Nav}`}>
+              {currentUser ? <LoggedInIcons /> : <LoggedOutIcons />}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <hr />
+    </>
   );
 };
 
