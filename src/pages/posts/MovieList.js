@@ -33,9 +33,9 @@ const MovieList = ({ filter = "", message }) => {
 
   return (
     <>
-      <Container className={styles.Movie}>
+      <Container>
         <Row>
-          <Col sm={12} xxl={10} className="pt-5">
+          <Col sm={12} className="pt-5 text-center">
             <Form
               onSubmit={(event) => event.preventDefault()}
               className={`pt-5 ${styles.SearchBar}`}
@@ -48,13 +48,18 @@ const MovieList = ({ filter = "", message }) => {
               />
             </Form>
           </Col>
-          <Col>
+          <Col className="text-center">
             {hasLoad ? (
               <>
                 {posts.results.length ? (
                   <InfiniteScroll
                     children={posts.results.map((post) => (
-                      <Col key={post.id} sm={4} className="d-inline-flex p-2">
+                      <Col
+                        key={post.id}
+                        md={6}
+                        xl={4}
+                        className="d-inline-flex p-4"
+                      >
                         <Movie key={post.id} {...post} setPosts={setPosts} />
                       </Col>
                     ))}
