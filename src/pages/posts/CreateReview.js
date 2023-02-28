@@ -3,7 +3,15 @@ import React, { useRef, useState } from "react";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/SignInUpForm.module.css";
 
-import { Col, Row, Container, Form, Button, Image } from "react-bootstrap";
+import {
+  Col,
+  Row,
+  Container,
+  Form,
+  Button,
+  Image,
+  Alert,
+} from "react-bootstrap";
 
 import { axiosRes } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
@@ -20,6 +28,7 @@ const CreateReview = () => {
   const navigate = useNavigate();
 
   const imageUpload = useRef(null);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     setPostData({
@@ -51,7 +60,7 @@ const CreateReview = () => {
       await axiosRes.post("/posts/", formData);
       navigate("/");
     } catch (error) {
-      console.log(error);
+      setErrors(error.response?.data);
     }
   };
 
@@ -73,6 +82,11 @@ const CreateReview = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.title?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group className="mb-3" controlId="genre">
               <Form.Label>Genre</Form.Label>
@@ -85,6 +99,11 @@ const CreateReview = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.genre?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group className="mb-3" controlId="content">
               <Form.Label>Content</Form.Label>
@@ -98,6 +117,11 @@ const CreateReview = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.content?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group controlId="image" className="mb-3">
               {postData.image ? (
@@ -126,6 +150,11 @@ const CreateReview = () => {
                 onChange={handleImage}
               />
             </Form.Group>
+            {errors.image?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Button variant="info" type="submit">
               Create

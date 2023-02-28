@@ -19,6 +19,7 @@ const EditReview = () => {
   const imageUpload = useRef(null);
   const navigate = useNavigate();
   const { id } = useParams();
+  const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
     setPostData({
@@ -53,7 +54,7 @@ const EditReview = () => {
       await axiosReq.patch(`/posts/${id}`, formData);
       navigate("/");
     } catch (error) {
-      console.log(error);
+      setErrors(error.response?.data);
     }
   };
 
@@ -93,6 +94,11 @@ const EditReview = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.title?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group className="mb-3" controlId="genre">
               <Form.Label>Genre</Form.Label>
@@ -105,6 +111,11 @@ const EditReview = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.genre?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group className="mb-3" controlId="content">
               <Form.Label>Content</Form.Label>
@@ -118,6 +129,11 @@ const EditReview = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.content?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Form.Group controlId="image" className="mb-3">
               <div>
@@ -134,6 +150,11 @@ const EditReview = () => {
                 onChange={handleImage}
               />
             </Form.Group>
+            {errors.image?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
 
             <Button variant="warning" type="submit">
               Update
