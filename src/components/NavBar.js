@@ -8,7 +8,7 @@ import {
 } from "../context/CurrentUserContext";
 import { removeTokenTimestamp } from "../utils/utils";
 import styles from "../styles/NavBar.module.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -25,29 +25,21 @@ const NavBar = () => {
     }
   };
 
-  function isActive({ isActive }) {
-    return isActive
-      ? {
-          color: "#fff",
-        }
-      : undefined;
-  }
-
   function LoggedInIcons() {
     return (
       <>
-        <NavLink className={styles.Navlink} to="/" style={isActive}>
+        <Nav.Link className={styles.Navlink} href="/">
           <i className="fa-solid fa-list" />
           Reviews
-        </NavLink>
-        <NavLink className={styles.Navlink} to="/liked" style={isActive}>
+        </Nav.Link>
+        <Nav.Link className={styles.Navlink} href="/liked">
           <i className="fa-solid fa-heart" />
           Liked
-        </NavLink>
-        <NavLink className={styles.Navlink} to="/posts/create" style={isActive}>
+        </Nav.Link>
+        <Nav.Link className={styles.Navlink} href="/posts/create">
           <i className="fa-solid fa-pencil" />
           Create
-        </NavLink>
+        </Nav.Link>
         <NavDropdown
           variant="dark"
           title={
@@ -74,18 +66,18 @@ const NavBar = () => {
   function LoggedOutIcons() {
     return (
       <>
-        <NavLink to="/" className={styles.Navlink} style={isActive}>
+        <Nav.Link href="/" className={styles.Navlink}>
           <i className="fa-solid fa-list" />
           Reviews
-        </NavLink>
-        <NavLink to="/signin" className={styles.Navlink} style={isActive}>
+        </Nav.Link>
+        <Nav.Link href="/signin" className={styles.Navlink}>
           <i className="fa-solid fa-right-to-bracket" />
           Sign in
-        </NavLink>
-        <NavLink to="/signup" className={styles.Navlink} style={isActive}>
+        </Nav.Link>
+        <Nav.Link href="/signup" className={styles.Navlink}>
           <i className="fa-solid fa-user-plus" />
           Sign up
-        </NavLink>
+        </Nav.Link>
       </>
     );
   }
