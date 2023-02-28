@@ -3,7 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/SignInUpForm.module.css";
 
-import { Col, Row, Container, Form, Button, Image } from "react-bootstrap";
+import {
+  Col,
+  Row,
+  Container,
+  Form,
+  Button,
+  Image,
+  Alert,
+} from "react-bootstrap";
 
 import { axiosReq } from "../../api/axiosDefaults";
 import { useNavigate, useParams } from "react-router-dom";
