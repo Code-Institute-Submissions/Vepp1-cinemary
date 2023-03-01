@@ -11,24 +11,29 @@ import EditReview from "./pages/posts/EditReview";
 import MoviePage from "./pages/posts/MoviePage";
 import ChangePassword from "./pages/auth/ChangePassword";
 import { useCurrentUser } from "./context/CurrentUserContext";
+import Liked from "./pages/posts/Liked";
 
 function App() {
   const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
+  const profile_id = currentUser?.profile_id;
 
   return (
     <div className="App">
       <NavBar />
       <Container fluid>
         <Routes>
-          <Route exact path="/" element={<MovieList message={'No results found!'}/>} />
+          <Route
+            exact
+            path="/"
+            element={<MovieList message={"No results found!"} />}
+          />
           <Route
             exact
             path="/liked"
             element={
-              <MovieList
-                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-                message={'No results found!'}
+              <Liked
+                filter={`likes__owner__profile=${profile_id}&`}
+                message={"No results found!"}
               />
             }
           />
