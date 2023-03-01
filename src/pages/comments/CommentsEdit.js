@@ -32,8 +32,8 @@ function CommentsEdit(props) {
         }),
       }));
       setShowEditForm(false);
-    } catch (err) {
-      // console.log(err);
+    } catch (error) {
+      // console.log(error.response?.data);
     }
   };
 

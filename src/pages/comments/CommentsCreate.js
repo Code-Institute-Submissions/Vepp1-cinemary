@@ -24,7 +24,7 @@ const CommentsCreate = (props) => {
       }));
       setContent("");
     } catch (error) {
-      console.log(error);
+      console.log(error.response?.data);
     }
   };
 

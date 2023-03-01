@@ -76,7 +76,7 @@ const EditReview = () => {
           ? setPostData({ title, content, image, genre })
           : navigate("/");
       } catch (error) {
-        console.log(error);
+        console.log(error.response?.data);
         navigate("/");
       }
     };

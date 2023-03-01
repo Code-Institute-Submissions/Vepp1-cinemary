@@ -16,7 +16,7 @@ const Movie = (props) => {
       await axiosReq.delete(`/posts/${props.id}`);
       navigate(0);
     } catch (error) {
-      console.log(error);
+      console.log(error.response?.data);
     }
   };
 
@@ -32,7 +32,7 @@ const Movie = (props) => {
         }),
       }));
     } catch (error) {
-      console.log(error);
+      console.log(error.response?.data);
     }
   };
 
@@ -48,7 +48,7 @@ const Movie = (props) => {
         }),
       }));
     } catch (error) {
-      console.log(error);
+      console.log(error.response?.data);
     }
   };
 

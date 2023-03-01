@@ -24,8 +24,8 @@ const Liked = ({ filter, message }) => {
         const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
         setPosts(data);
         setHasLoad(true);
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        console.log(error.response?.data);
       }
     };
 

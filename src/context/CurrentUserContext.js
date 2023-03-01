@@ -18,8 +18,8 @@ export const CurrentUserProvider = ({ children }) => {
     try {
       const { data } = await axiosRes.get("dj-rest-auth/user/");
       setCurrentUser(data);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error.response?.data);
     }
   };
 
@@ -33,7 +33,7 @@ export const CurrentUserProvider = ({ children }) => {
         if (isUserLoggedIn()) {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
-          } catch (err) {
+          } catch (error) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
                 navigate("/signin");
@@ -46,18 +46,18 @@ export const CurrentUserProvider = ({ children }) => {
         }
         return config;
       },
-      (err) => {
-        return Promise.reject(err);
+      (error) => {
+        return Promise.reject(error);
       }
     );
 
     axiosRes.interceptors.response.use(
       (response) => response,
-      async (err) => {
-        if (err.response?.status === 401) {
+      async (error) => {
+        if (error.response?.status === 401) {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
-          } catch (err) {
+          } catch (error) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
                 navigate("/signin");
@@ -66,9 +66,9 @@ export const CurrentUserProvider = ({ children }) => {
             });
             removeTokenTimestamp();
           }
-          return axios(err.config);
+          return axios(error.config);
         }
-        return Promise.reject(err);
+        return Promise.reject(error);
       }
     );
   }, [navigate]);

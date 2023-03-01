@@ -36,7 +36,7 @@ const MoviePage = () => {
         setComments(comments);
         setHasLoad(true);
       } catch (error) {
-        console.log(error);
+        console.log(error.response?.data);
       }
     };
     setHasLoad(false);
