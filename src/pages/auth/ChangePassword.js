@@ -64,7 +64,7 @@ const ChangePassword = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.password1?.map((message, idx) => (
+            {errors.new_password1?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
@@ -81,7 +81,7 @@ const ChangePassword = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.password2?.map((message, idx) => (
+            {errors.new_password2?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
