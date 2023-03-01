@@ -4,7 +4,7 @@ Cinemary is an online platform where users can read and make reviews about movie
 
 ---
 
-![Desktop View]()
+![Desktop View](assets/view.png)
 
 ---
 
@@ -88,7 +88,7 @@ All users can see how many likes a review has. But only logged users can click t
 
 - User Story: Like and Unlike Posts
 
-![Like and Unlike]()
+![Like and Unlike](assets/likes.png)
 
 ### Create Comment
 
@@ -134,7 +134,7 @@ The page is refreshed as the user scrolls down loading more posts.
 
 - The main idea was to build an app that would be easily accessible to all users, with an infinite scroll and a card display inspired by streaming interfaces.
 
-## ![Wireframe](static/assets/img/message.png)
+## ![Wireframe](assets/wireframe.png)
 
 ## Testing and Validation
 
@@ -220,4 +220,4 @@ There are no present bugs in this version.
 ### Content
 
 - The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-- The font was taken from [Font Awesome](https://fontawesome.com/)
+- The font was taken from [Google Fonts](https://fonts.google.com/)
