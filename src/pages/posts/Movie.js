@@ -111,7 +111,9 @@ const Movie = (props) => {
 
             {props.comments_count}
             <span>
-              <i className={`fa-regular fa-comment ${styles.Comments}`} />
+              <a href={`/posts/${props.id}`}>
+                <i className={`fa-regular fa-comment ${styles.Comments}`} />
+              </a>
             </span>
             <br />
 

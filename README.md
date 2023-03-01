@@ -189,19 +189,14 @@ There are no present bugs in this version.
 
 ---
 
-## Deployment
-
-- The live link can be found [here](https://cinemary.herokuapp.com/).
-- [GitHub Repo](https://github.com/Vepp1/cinemary).
+https://fontawesome.com//Vepp1/cinemary).
 
 #### GitHub/GitPod
 
 - Forking the GitHub Repository:
 
-  - If you want to make changes to your repository without affecting it, you can make a copy of it by 'Forking' it. This ensures your original repository remains unchanged.
-  - Find the relevant GitHub repository
-  - In the top right corner of the page, click the Fork button (under your account)
-  - Your repository has now been 'Forked' and you have a copy to work on
+  - If you want to make changes to https://fontawesome.com/page, click the Fork button (under your account)
+  - Your repository has now been 'https://fontawesome.com/Forked' and you have a copy to work on
   - Cloning the GitHub Repository
 
 - Cloning your repository will allow you to download a local version of the repository to be worked on.
