@@ -10,6 +10,12 @@ Cinemary is an online platform where users can read and make reviews about movie
 
 ## Features
 
+### Color Palette and Typography
+
+The colors and Font-Family (Unbouded and Sans-Serif) where choosed to give the application of a 'Light Theme Aspect' and a minimalist design.
+
+![Color Palette](assets/palette.png)
+
 ### Landing Page - Posts List
 
 The landing page displays all posts created by all users. Every user (logged in or logged out) can access this page and filter posts using the search bar.
