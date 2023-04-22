@@ -132,11 +132,11 @@ The page is refreshed as the user scrolls down loading more posts.
 
 ![Change Password](assets/password.png)
 
-### To check all features and future features, check the project on [GitHub](https://github.com/users/Vepp1/projects/4)
-
-## Reuse of React
+### Reuse of React
 
 The use of React developing this application, allowed the reuse of components through differente pages. The navbar and the movie display, can be found on the homepage and on the review page, using the same component.
+
+### To check all features and future features, check the project on [GitHub](https://github.com/users/Vepp1/projects/4)
 
 
 ---
@@ -146,6 +146,20 @@ The use of React developing this application, allowed the reuse of components th
 - The main idea was to build an app that would be easily accessible to all users, with an infinite scroll and a card display inspired by streaming interfaces.
 
 ## ![Wireframe](assets/wireframe.png)
+
+---
+
+---
+
+## Frontend Libraries
+
+- Two Frontend Libs were used for the development of this project:
+  - React.
+  - React Bootstrap.
+
+## ![Wireframe](assets/wireframe.png)
+
+---
 
 ## Testing and Validation
 
@@ -193,6 +207,8 @@ The use of React developing this application, allowed the reuse of components th
 
 - Color Contrast
   - The website's color contrast was validated through [a11y](https://color.a11y.com/Contrast/), and presented no issues.
+
+---
 
 ### Unfixed Bugs
 
