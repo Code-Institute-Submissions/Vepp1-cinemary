@@ -185,7 +185,7 @@ The page is refreshed as the user scrolls down loading more posts.
 
 ### Unfixed Bugs
 
-There are no present bugs in this version.
+- Creating and loggin into an account is not working on IOS mobile devices.
 
 ---
 
