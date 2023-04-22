@@ -134,6 +134,11 @@ The page is refreshed as the user scrolls down loading more posts.
 
 ### To check all features and future features, check the project on [GitHub](https://github.com/users/Vepp1/projects/4)
 
+## Reuse of React
+
+The use of React developing this application, allowed the reuse of components through differente pages. The navbar and the movie display, can be found on the homepage and on the review page, using the same component.
+
+
 ---
 
 ## Wireframe
