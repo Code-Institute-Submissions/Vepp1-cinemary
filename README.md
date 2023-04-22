@@ -189,7 +189,17 @@ There are no present bugs in this version.
 
 ---
 
-https://fontawesome.com//Vepp1/cinemary).
+## Deployment
+
+### Heroku
+
+- Deploying to Heroku:
+  - Access www.heroku.com.
+  - Click on new and Create New App.
+  - Choose an App name and a region and Create App.
+  - On the Deployment tab, connect to Github and choose the proper repository.
+  - Deploy Branch.
+
 
 #### GitHub/GitPod
 
