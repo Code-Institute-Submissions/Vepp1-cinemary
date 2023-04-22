@@ -138,7 +138,9 @@ const CreateReview = () => {
                 <>
                   <Form.Label>
                     <i className={` ${styles.Upload} fa-solid fa-upload`} />
-                    Upload Image
+                    Upload Image 
+                    <br></br>
+                     <em>2mb, height &#62; 1000 x width &#60; 2000</em>
                   </Form.Label>
                 </>
               )}
