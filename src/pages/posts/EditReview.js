@@ -22,6 +22,8 @@ const EditReview = () => {
     genre: "",
     content: "",
     image: "",
+    director: "",
+    release_at: "",
   });
 
   const imageUpload = useRef(null);
@@ -53,6 +55,8 @@ const EditReview = () => {
     formData.append("title", postData.title);
     formData.append("genre", postData.genre);
     formData.append("content", postData.content);
+    formData.append("director", postData.director);
+    formData.append("release_at", postData.release_at);
 
     if (imageUpload?.current?.files[0]) {
       formData.append("image", imageUpload.current.files[0]);
@@ -70,10 +74,10 @@ const EditReview = () => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`);
-        const { title, content, genre, image, is_owner } = data;
+        const { title, content, genre, image, is_owner, director, release_at } = data;
 
         is_owner
-          ? setPostData({ title, content, image, genre })
+          ? setPostData({ title, content, image, genre, director, release_at })
           : navigate("/");
       } catch (error) {
         console.log(error.response?.data);
@@ -120,6 +124,40 @@ const EditReview = () => {
               />
             </Form.Group>
             {errors.genre?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group className="mb-3" controlId="director">
+              <Form.Label>Director</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="director"
+                name="director"
+                className={styles.Input}
+                value={postData.director}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors.director?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group className="mb-3" controlId="release_at">
+              <Form.Label>Release Date</Form.Label>
+              <Form.Control
+                type="date"
+                placeholder="release_at"
+                name="release_at"
+                className={styles.Input}
+                value={postData.release_at}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors.release_at?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
