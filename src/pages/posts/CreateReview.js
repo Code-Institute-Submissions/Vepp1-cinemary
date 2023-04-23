@@ -24,6 +24,8 @@ const CreateReview = () => {
     genre: "",
     content: "",
     image: "",
+    director: "",
+    release_at: "",
   });
   const navigate = useNavigate();
 
@@ -54,6 +56,8 @@ const CreateReview = () => {
     formData.append("title", postData.title);
     formData.append("genre", postData.genre);
     formData.append("content", postData.content);
+    formData.append("director", postData.director);
+    formData.append("release_at", postData.release_at);
     formData.append("image", imageUpload.current.files[0]);
 
     try {
@@ -92,10 +96,44 @@ const CreateReview = () => {
               <Form.Label>Genre</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="genre"
+                placeholder="Genre"
                 name="genre"
                 className={styles.Input}
                 value={postData.genre}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors.genre?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group className="mb-3" controlId="director">
+              <Form.Label>Director</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Director"
+                name="director"
+                className={styles.Input}
+                value={postData.director}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors.director?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group className="mb-3" controlId="release_at">
+              <Form.Label>Release Date</Form.Label>
+              <Form.Control
+                type="date"
+                placeholder="release_at"
+                name="release_at"
+                className={styles.Input}
+                value={postData.release_at}
                 onChange={handleChange}
               />
             </Form.Group>
