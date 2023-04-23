@@ -22,7 +22,7 @@ const MoviePage = () => {
           axiosReq.get(`/posts/${id}`),
           axiosReq.get(`/comments/?post=${id}`),
         ]);
-        const { title, content, genre, image, owner, created_at, updated_at } =
+        const { title, content, genre, image, owner, created_at, updated_at, director, release_at } =
           post;
         setPostData({
           title,
@@ -32,6 +32,8 @@ const MoviePage = () => {
           owner,
           created_at,
           updated_at,
+          director, 
+          release_at,
         });
         setComments(comments);
         setHasLoad(true);
@@ -54,9 +56,11 @@ const MoviePage = () => {
               </Col>
               <Col>
                 <h1>{postData.title}</h1>
-                <p className="text-left">
-                  <strong>Genre:</strong> {postData.genre}
-                </p>
+                <div className="text-left">
+                  <p><strong>Genre:</strong> {postData.genre}</p>
+                  <p><strong>Director:</strong> {postData.director}</p>
+                  <p><strong>Release Date:</strong> {postData.release_at}</p>
+                </div>
                 <p>{postData.content}</p>
                 <p>
                   Created by: <strong>{postData.owner}</strong> on{" "}
