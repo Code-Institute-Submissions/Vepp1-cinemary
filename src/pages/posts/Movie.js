@@ -84,11 +84,10 @@ const Movie = (props) => {
             </span>
           </Card.Title>
           <Card.Text className="mt-2">
-            <span>
-              <strong>Genre:</strong> {props.genre}
-            </span>
-
-            <br />
+            <div>
+              <p><strong>Genre:</strong> {props.genre}</p> 
+              <p><strong>Director:</strong> {props.director}</p> 
+            </div>
 
             {currentUser ? (
               props.like_id ? (

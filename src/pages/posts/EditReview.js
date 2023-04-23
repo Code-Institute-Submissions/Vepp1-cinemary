@@ -116,7 +116,7 @@ const EditReview = () => {
               <Form.Label>Genre</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="genre"
+                placeholder="Genre"
                 name="genre"
                 className={styles.Input}
                 value={postData.genre}
@@ -133,7 +133,7 @@ const EditReview = () => {
               <Form.Label>Director</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="director"
+                placeholder="Director"
                 name="director"
                 className={styles.Input}
                 value={postData.director}
