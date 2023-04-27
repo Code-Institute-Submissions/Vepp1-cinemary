@@ -12,7 +12,7 @@ Cinemary is an online platform where users can read and make reviews about movie
 
 ### Color Palette and Typography
 
-The colors and Font-Family (Unbouded and Sans-Serif) where choosed to give the application of a 'Light Theme Aspect' and a minimalist design.
+The colors and Font-Family (Unbouded and Sans-Serif) where choosed to give the application a 'Light Theme' and a minimalist design.
 
 ![Color Palette](assets/palette.png)
 
@@ -156,8 +156,7 @@ The use of React developing this application, allowed the reuse of components th
 - Two Frontend Libs were used for the development of this project:
   - React.
   - React Bootstrap.
-
-## ![Wireframe](assets/wireframe.png)
+  - Font Awesome.
 
 ---
 
