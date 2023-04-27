@@ -134,7 +134,7 @@ The page is refreshed as the user scrolls down loading more posts.
 
 ### Reuse of React
 
-The use of React developing this application, allowed the reuse of components through differente pages. The navbar and the movie display, can be found on the homepage and on the review page, using the same component.
+The use of React developing this application, allowed the reuse of components through differente pages, increasing the loading speed and giving a better user experience. The navbar and the movie display, can be found on the homepage and on the review page, using the same component. Users can see new likes and comments, without the pages being reloaded.
 
 ### To check all features and future features, check the project on [GitHub](https://github.com/users/Vepp1/projects/4)
 
