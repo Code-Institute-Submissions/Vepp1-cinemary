@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { Col, Row, Container, Form } from "react-bootstrap";
-import Movie from "./Movie";
+import Movie from "../../components/Movie";
 import styles from "../../styles/MovieList.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
