@@ -18,7 +18,8 @@
 }
 
 .Title {
-  font-size: 28px;
+  font-size: 19px;
+  font-weight: bold;;
 }
 
 .LoggedOut {
@@ -53,7 +54,4 @@
   -ms-flex: 0 0 50%;
   flex: 0 0 50%;
   max-width: 100%;
-}
-
-.Figure {
 }
