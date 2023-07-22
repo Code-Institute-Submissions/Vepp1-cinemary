@@ -12,6 +12,7 @@ import MoviePage from "./pages/posts/MoviePage";
 import ChangePassword from "./pages/auth/ChangePassword";
 import { useCurrentUser } from "./context/CurrentUserContext";
 import Liked from "./pages/posts/Liked";
+import ChangeUsername from "./pages/auth/ChangeUsername";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -42,7 +43,8 @@ function App() {
           <Route export path="/posts/create" element={<CreateReview />} />
           <Route export path="/edit/:id" element={<EditReview />} />
           <Route export path="/posts/:id" element={<MoviePage />} />
-          <Route export path="/profiles/:id" element={<ChangePassword />} />
+          <Route export path="/profiles/:id/changepass" element={<ChangePassword />} />
+          <Route export path="/profiles/:id/changeuser" element={<ChangeUsername />} />
           <Route path="*" element={<MovieList />} />
         </Routes>
       </Container>
