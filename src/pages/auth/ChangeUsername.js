@@ -8,6 +8,7 @@ import { Col, Row, Container, Form, Button, Alert } from "react-bootstrap";
 import { useRedirect } from "../../hooks/useRedirect";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../context/CurrentUserContext";
+import { useSetCurrentUser } from "../../context/CurrentUserContext";
 
 const ChangeUsername = () => {
   useRedirect("loggedOut");
@@ -16,7 +17,7 @@ const ChangeUsername = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const [username, setUsername] = userData;
+  const [username, setUsername] = useState("");;
 
   const [errors, setErrors] = useState({});
 
