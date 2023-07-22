@@ -24,7 +24,9 @@ const ChangeUsername = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axiosRes.post("/dj-rest-auth/user/", {username});
+        await axiosRes.put("/dj-rest-auth/user/", {
+            username,
+          });
         setCurrentUser((prevUser) => ({
             ...prevUser,
             username,
@@ -47,11 +49,11 @@ const ChangeUsername = () => {
     <Row className={styles.Row}>
       <Col className="mx-auto my-auto" md="8">
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>Update Password</h1>
+          <h1 className={styles.Header}>Update Username</h1>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="password1">
-              <Form.Label>Update USername</Form.Label>
+              <Form.Label>Change Username</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="username"

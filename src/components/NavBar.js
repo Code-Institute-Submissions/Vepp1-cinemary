@@ -54,10 +54,16 @@ const NavBar = () => {
             Logout
           </NavDropdown.Item>
           <NavDropdown.Item
-            onClick={() => navigate(`/profiles/${currentUser.profile_id}`)}
+            onClick={() => navigate(`/profiles/${currentUser.profile_id}/changeuser`)}
             className="text-dark"
           >
-            Change Credentials
+            Change Username
+          </NavDropdown.Item>
+          <NavDropdown.Item
+            onClick={() => navigate(`/profiles/${currentUser.profile_id}/changepass`)}
+            className="text-dark"
+          >
+            Change Password
           </NavDropdown.Item>
         </NavDropdown>
       </>
