@@ -20,6 +20,7 @@ const ChangePassword = () => {
     new_password2: "",
   });
   const { new_password1, new_password2 } = userData;
+  const [alert, setAlert] = useState();
 
   const [errors, setErrors] = useState({});
 
@@ -34,7 +35,10 @@ const ChangePassword = () => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
-      navigate(-1);
+      setAlert('Password Updated');
+      setTimeout(() => {
+        navigate(-1);
+      }, 1500)
     } catch (error) {
       setErrors(error.response?.data);
     }
@@ -49,6 +53,11 @@ const ChangePassword = () => {
   return (
     <Row className={styles.Row}>
       <Col className="mx-auto my-auto" md="8">
+      {alert ? (
+                <Alert variant="success">
+                  {alert}
+                </Alert>
+              ) : null}
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>Update Password</h1>
 
