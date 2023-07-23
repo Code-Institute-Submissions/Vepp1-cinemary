@@ -22,7 +22,7 @@ const MoviePage = () => {
           axiosReq.get(`/posts/${id}`),
           axiosReq.get(`/comments/?post=${id}`),
         ]);
-        const { title, content, genre, image, owner, created_at, updated_at, director, release_at } =
+        const { title, content, genre, image, owner, created_at, actors, director, release_at } =
           post;
         setPostData({
           title,
@@ -30,8 +30,8 @@ const MoviePage = () => {
           genre,
           image,
           owner,
+          actors,
           created_at,
-          updated_at,
           director, 
           release_at,
         });
@@ -59,6 +59,7 @@ const MoviePage = () => {
                 <div className="text-left">
                   <p><strong>Genre:</strong> {postData.genre}</p>
                   <p><strong>Director:</strong> {postData.director}</p>
+                  <p><strong>Actors:</strong> {postData.actors}</p>
                   <p><strong>Release Date:</strong> {postData.release_at}</p>
                 </div>
                 <p>{postData.content}</p>

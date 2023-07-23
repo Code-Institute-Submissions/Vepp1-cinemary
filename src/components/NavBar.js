@@ -50,13 +50,15 @@ const NavBar = () => {
           }
           className={styles.Dropdown}
         >
-          <NavDropdown.Item className="text-dark" onClick={handleLogout}>
+          <NavDropdown.Item className="text-dark" onClick={() => {
+            document.querySelector('.navbar-collapse').classList.remove('show');
+            handleLogout();}}>
             Logout
           </NavDropdown.Item>
           <NavDropdown.Item
             onClick={() => {
-              document.querySelector('.navbar-collapse').classList.remove('show')      
-              navigate(`/profiles/${currentUser.profile_id}/changeuser`)
+              document.querySelector('.navbar-collapse').classList.remove('show');    
+              navigate(`/profiles/${currentUser.profile_id}/changeuser`);
             }}
             className="text-dark"
           >
@@ -64,8 +66,8 @@ const NavBar = () => {
           </NavDropdown.Item>
           <NavDropdown.Item
             onClick={() => {
-              document.querySelector('.navbar-collapse').classList.remove('show')  
-              navigate(`/profiles/${currentUser.profile_id}/changepass`)}}
+              document.querySelector('.navbar-collapse').classList.remove('show');
+              navigate(`/profiles/${currentUser.profile_id}/changepass`);}}
             className="text-dark"
           >
             Change Password
