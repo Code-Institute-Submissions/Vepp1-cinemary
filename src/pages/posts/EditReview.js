@@ -23,6 +23,7 @@ const EditReview = () => {
     content: "",
     image: "",
     director: "",
+    actors: "",
     release_at: "",
   });
 
@@ -57,6 +58,7 @@ const EditReview = () => {
     formData.append("genre", postData.genre);
     formData.append("content", postData.content);
     formData.append("director", postData.director);
+    formData.append("actors", postData.actors);
     formData.append("release_at", postData.release_at);
 
     if (imageUpload?.current?.files[0]) {
@@ -78,10 +80,10 @@ const EditReview = () => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`);
-        const { title, content, genre, image, is_owner, director, release_at } = data;
+        const { title, content, genre, image, is_owner, director, release_at, actors } = data;
 
         is_owner
-          ? setPostData({ title, content, image, genre, director, release_at })
+          ? setPostData({ title, content, image, genre, director, release_at, actors })
           : navigate("/");
       } catch (error) {
         console.log(error.response?.data);
@@ -146,6 +148,23 @@ const EditReview = () => {
                 name="director"
                 className={styles.Input}
                 value={postData.director}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors.director?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group className="mb-3" controlId="actors">
+              <Form.Label>Actors</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Actors"
+                name="actors"
+                className={styles.Input}
+                value={postData.actors}
                 onChange={handleChange}
               />
             </Form.Group>

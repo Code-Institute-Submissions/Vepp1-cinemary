@@ -26,6 +26,7 @@ const CreateReview = () => {
     image: "",
     director: "",
     release_at: "",
+    actors: "",
   });
   const navigate = useNavigate();
 
@@ -59,6 +60,7 @@ const CreateReview = () => {
     formData.append("content", postData.content);
     formData.append("director", postData.director);
     formData.append("release_at", postData.release_at);
+    formData.append("actors", postData.actors);
     formData.append("image", imageUpload.current.files[0]);
 
     try {
@@ -126,6 +128,23 @@ const CreateReview = () => {
                 name="director"
                 className={styles.Input}
                 value={postData.director}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors.director?.map((message, idx) => (
+              <Alert key={idx} variant="warning">
+                {message}
+              </Alert>
+            ))}
+
+            <Form.Group className="mb-3" controlId="actors">
+              <Form.Label>Actors</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Actors"
+                name="actors"
+                className={styles.Input}
+                value={postData.actors}
                 onChange={handleChange}
               />
             </Form.Group>
