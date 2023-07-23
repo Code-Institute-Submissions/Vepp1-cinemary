@@ -20,6 +20,7 @@ const ChangeUsername = () => {
   const [username, setUsername] = useState("");;
 
   const [errors, setErrors] = useState({});
+  const [alert, setAlert] = useState();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -31,7 +32,10 @@ const ChangeUsername = () => {
             ...prevUser,
             username,
         }));
-        navigate(-1)
+        setAlert('Username Updated');
+        setTimeout(() => {
+          navigate(-1);
+        }, 1500);
     } catch (error) {
       setErrors(error.response?.data);
     }
@@ -48,6 +52,11 @@ const ChangeUsername = () => {
   return (
     <Row className={styles.Row}>
       <Col className="mx-auto my-auto" md="8">
+      {alert ? (
+                <Alert variant="success">
+                  {alert}
+                </Alert>
+              ) : null}
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>Update Username</h1>
 

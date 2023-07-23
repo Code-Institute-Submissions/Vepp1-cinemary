@@ -38,7 +38,7 @@ const ChangePassword = () => {
       setAlert('Password Updated');
       setTimeout(() => {
         navigate(-1);
-      }, 1500)
+      }, 1500);
     } catch (error) {
       setErrors(error.response?.data);
     }
