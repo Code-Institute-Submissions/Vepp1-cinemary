@@ -26,6 +26,7 @@ const SignUpForm = () => {
   const { username, password1, password2 } = signUpData;
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
+  const [alert, setAlert] = useState();
 
   const handleChange = (event) => {
     setSignUpData({
@@ -38,7 +39,10 @@ const SignUpForm = () => {
     event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
-      navigate("/signin");
+      setTimeout(() => {
+        navigate("/signin");
+      }, 1500)
+      setAlert('Account Created');
     } catch (error) {
       setErrors(error.response?.data);
     }
@@ -46,6 +50,11 @@ const SignUpForm = () => {
 
   return (
     <Container className="pt-5">
+      {alert ? (
+                <Alert variant="success">
+                  {alert}
+                </Alert>
+              ) : null}
       <Row className={styles.Row}>
         <Col className="mx-auto my-auto" md="8">
           <Container className={`${appStyles.Content} p-4 `}>
