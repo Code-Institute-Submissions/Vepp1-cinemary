@@ -27,6 +27,7 @@ const SignInForm = () => {
     password: "",
   });
   const [errors, setErrors] = useState();
+  const [alert, setAlert] = useState();
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -42,7 +43,10 @@ const SignInForm = () => {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
       setCurrentUser(data.user);
       setTokenTimestamp(data);
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 1500)
+      setAlert('Login Sucessful')
     } catch (error) {
       setErrors(error.response?.data);
     }
@@ -50,6 +54,11 @@ const SignInForm = () => {
 
   return (
     <Container className="pt-5">
+       {alert ? (
+                <Alert variant="success">
+                  {alert}
+                </Alert>
+              ) : null}
       <Row className={styles.Row}>
         <Col className="mx-auto my-auto" md="8">
           <Container className={`${appStyles.Content} p-4 `}>
