@@ -54,13 +54,18 @@ const NavBar = () => {
             Logout
           </NavDropdown.Item>
           <NavDropdown.Item
-            onClick={() => navigate(`/profiles/${currentUser.profile_id}/changeuser`)}
+            onClick={() => {
+              document.querySelector('.navbar-collapse').classList.remove('show')      
+              navigate(`/profiles/${currentUser.profile_id}/changeuser`)
+            }}
             className="text-dark"
           >
             Change Username
           </NavDropdown.Item>
           <NavDropdown.Item
-            onClick={() => navigate(`/profiles/${currentUser.profile_id}/changepass`)}
+            onClick={() => {
+              document.querySelector('.navbar-collapse').classList.remove('show')  
+              navigate(`/profiles/${currentUser.profile_id}/changepass`)}}
             className="text-dark"
           >
             Change Password
