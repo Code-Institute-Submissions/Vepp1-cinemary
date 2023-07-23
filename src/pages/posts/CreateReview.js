@@ -31,6 +31,7 @@ const CreateReview = () => {
 
   const imageUpload = useRef(null);
   const [errors, setErrors] = useState({});
+  const [alert, setAlert] = useState();
 
   const handleChange = (event) => {
     setPostData({
@@ -62,7 +63,10 @@ const CreateReview = () => {
 
     try {
       await axiosRes.post("/posts/", formData);
-      navigate("/");
+      setAlert('Review Created');
+        setTimeout(() => {
+          navigate('/');
+        }, 1500);
     } catch (error) {
       setErrors(error.response?.data);
     }
@@ -71,6 +75,11 @@ const CreateReview = () => {
   return (
     <Row className={`pt-5 ${styles.Row}`}>
       <Col className="my-auto mx-auto pt-5" md="8">
+      {alert ? (
+                <Alert variant="success">
+                  {alert}
+                </Alert>
+              ) : null}
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>Create Review</h1>
 

@@ -30,6 +30,7 @@ const EditReview = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [errors, setErrors] = useState({});
+  const [alert, setAlert] = useState();
 
   const handleChange = (event) => {
     setPostData({
@@ -64,7 +65,10 @@ const EditReview = () => {
 
     try {
       await axiosReq.patch(`/posts/${id}`, formData);
-      navigate("/");
+      setAlert('Review Updated');
+        setTimeout(() => {
+          navigate('/');
+        }, 1500);
     } catch (error) {
       setErrors(error.response?.data);
     }
@@ -91,6 +95,11 @@ const EditReview = () => {
   return (
     <Row className={`pt-5 ${styles.Row}`}>
       <Col className="my-auto mx-auto pt-5" md="8">
+      {alert ? (
+                <Alert variant="success">
+                  {alert}
+                </Alert>
+              ) : null}
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>Edit Review</h1>
 
