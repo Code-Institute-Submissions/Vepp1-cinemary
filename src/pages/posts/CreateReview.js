@@ -77,11 +77,6 @@ const CreateReview = () => {
   return (
     <Row className={`pt-5 ${styles.Row}`}>
       <Col className="my-auto mx-auto pt-5" md="8">
-      {alert ? (
-                <Alert variant="success">
-                  {alert}
-                </Alert>
-              ) : null}
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>Create Review</h1>
 
@@ -228,6 +223,11 @@ const CreateReview = () => {
               Create
             </Button>
           </Form>
+          {alert ? (
+                <Alert variant="success">
+                  {alert}
+                </Alert>
+              ) : null}
         </Container>
       </Col>
       <Col
