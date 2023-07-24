@@ -21,7 +21,7 @@ const CreateReview = () => {
   useRedirect("loggedOut");
   const [postData, setPostData] = useState({
     title: "",
-    genre: "",
+    classification: "",
     content: "",
     image: "",
     director: "",
@@ -56,7 +56,7 @@ const CreateReview = () => {
     const formData = new FormData();
 
     formData.append("title", postData.title);
-    formData.append("genre", postData.genre);
+    formData.append("classification", postData.classification);
     formData.append("content", postData.content);
     formData.append("director", postData.director);
     formData.append("release_at", postData.release_at);
@@ -98,18 +98,18 @@ const CreateReview = () => {
               </Alert>
             ))}
 
-            <Form.Group className="mb-3" controlId="genre">
+            <Form.Group className="mb-3" controlId="classification">
               <Form.Label>Genre</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Genre"
-                name="genre"
+                name="classification"
                 className={styles.Input}
-                value={postData.genre}
+                value={postData.classification}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.genre?.map((message, idx) => (
+            {errors.classification?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
@@ -160,7 +160,7 @@ const CreateReview = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.genre?.map((message, idx) => (
+            {errors.release_at?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
@@ -183,6 +183,11 @@ const CreateReview = () => {
                 {message}
               </Alert>
             ))}
+            {alert ? (
+                <Alert variant="success">
+                  {alert}
+                </Alert>
+              ) : null}
 
             <Form.Group controlId="image" className="mb-3">
               {postData.image ? (
@@ -223,11 +228,6 @@ const CreateReview = () => {
               Create
             </Button>
           </Form>
-          {alert ? (
-                <Alert variant="success">
-                  {alert}
-                </Alert>
-              ) : null}
         </Container>
       </Col>
       <Col

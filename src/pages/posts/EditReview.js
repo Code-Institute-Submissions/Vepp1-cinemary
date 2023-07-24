@@ -19,7 +19,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const EditReview = () => {
   const [postData, setPostData] = useState({
     title: "",
-    genre: "",
+    classification: "",
     content: "",
     image: "",
     director: "",
@@ -55,7 +55,7 @@ const EditReview = () => {
     const formData = new FormData();
 
     formData.append("title", postData.title);
-    formData.append("genre", postData.genre);
+    formData.append("classification", postData.classification);
     formData.append("content", postData.content);
     formData.append("director", postData.director);
     formData.append("actors", postData.actors);
@@ -70,7 +70,7 @@ const EditReview = () => {
       setAlert('Review Updated');
         setTimeout(() => {
           navigate('/');
-        }, 1500);
+        }, 2000);
     } catch (error) {
       setErrors(error.response?.data);
     }
@@ -80,10 +80,10 @@ const EditReview = () => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}`);
-        const { title, content, genre, image, is_owner, director, release_at, actors } = data;
+        const { title, content, classification, image, is_owner, director, release_at, actors } = data;
 
         is_owner
-          ? setPostData({ title, content, image, genre, director, release_at, actors })
+          ? setPostData({ title, content, image, classification, director, release_at, actors })
           : navigate("/");
       } catch (error) {
         console.log(error.response?.data);
@@ -118,18 +118,30 @@ const EditReview = () => {
               </Alert>
             ))}
 
-            <Form.Group className="mb-3" controlId="genre">
+            <Form.Group className="mb-3" controlId="classification">
               <Form.Label>Genre</Form.Label>
               <Form.Control
-                type="text"
+                as="select"
                 placeholder="Genre"
-                name="genre"
+                name="classification"
                 className={styles.Input}
-                value={postData.genre}
+                value={postData.classification}
                 onChange={handleChange}
-              />
+              > 
+              <option value='Action'>Action</option>
+              <option value='Adventure'>Adventure</option>
+              <option value='Comedy'>Comedy</option>
+              <option value='Cult'>Cult</option>
+              <option value='Drama'>Drama</option>
+              <option value='History'>History</option>
+              <option value='Horror'>Horror</option>
+              <option value='Musical'>Musical</option>
+              <option value='Terror'>Terror</option>
+              <option value='Sci-Fi'>Sci-Fi</option>
+              <option value='Western'>Western</option>
+              </Form.Control>
             </Form.Group>
-            {errors.genre?.map((message, idx) => (
+            {errors.classification?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
@@ -203,7 +215,11 @@ const EditReview = () => {
                 {message}
               </Alert>
             ))}
-
+            {alert ? (
+                <Alert variant="success">
+                  {alert}
+                </Alert>
+              ) : null}
             <Form.Group controlId="image" className="mb-3">
               <div>
                 <Form.Label>Change Upload</Form.Label>
@@ -229,11 +245,6 @@ const EditReview = () => {
               Update
             </Button>
           </Form>
-          {alert ? (
-                <Alert variant="success">
-                  {alert}
-                </Alert>
-              ) : null}
         </Container>
       </Col>
       <Col
