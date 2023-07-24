@@ -52,7 +52,7 @@ const MoviePage = () => {
           <>
             <Row className="text-justify">
               <Col>
-                <Image src={postData.image} className={styles.Image} />
+                <Image src={postData.image} className={styles.Image} alt={postData.title} />
               </Col>
               <Col>
                 <h1>{postData.title}</h1>

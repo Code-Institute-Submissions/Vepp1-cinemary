@@ -57,7 +57,7 @@ const Movie = (props) => {
       <Card className={styles.Post} key={props.id}>
         <a href={`/posts/${props.id}`} className={styles.Anchor}>
           <figure>
-            <Card.Img variant="top" src={props.image} alt="Post Image" />
+            <Card.Img variant="top" src={props.image} alt={props.title} />
           </figure>
         </a>
 
