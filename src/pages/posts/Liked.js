@@ -45,7 +45,7 @@ const Liked = ({ filter, message }) => {
               <Form.Control
                 type="text"
                 className="mr-sm-2 text-center"
-                placeholder="Search reviews by title, genre or author's username"
+                placeholder="Search reviews by title, genre, director, actors..."
                 onChange={(event) => setQuery(event.target.value)}
               />
             </Form>
