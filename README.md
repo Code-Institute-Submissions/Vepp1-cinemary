@@ -145,6 +145,8 @@ The use of React to develop this application, allowed the reuse of components th
 
 ## ![Wireframe](assets/wireframe.png)
 
+## ![Wireframe](assets/wireframe2.jpeg)
+
 ---
 
 ---
