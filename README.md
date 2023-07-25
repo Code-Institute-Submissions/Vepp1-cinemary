@@ -1,6 +1,6 @@
 # Cinemary
 
-Cinemary is an online platform where users can read and make reviews about movies and series. The app interface allows users' interactions to list, create, edit and delete posts or comments, filter posts using the search bar, and like and unlike posts. Cinemary was built with React, to achieve the best User Experience possible, adding an infinite scroll and components that update without the whole document being refreshed. In this way, users can like/unlike, create and edit comments and don't have to wait for the page to refresh. When accessing the Website, users can search and read reviews without being logged in. If they want to save(like), comment or create reviews, they need to Sign Up. On the Sign-Up page, they are asked to provide a username and password. After a successful Sign-Up, users are redirected to the Sign In page, where they have to input their login information. Once a user is logged into his account, the navbar options are updated. Now, the user can create a review, edit and delete his reviews, comment, like. The project's goal is to build a community with film fans, where people can share their thoughts about pieces and also find new suggestions on what to watch next.
+Cinemary is an online platform where users can read and make reviews about movies and series. The app interface allows users' interactions to list, create, edit and delete posts or comments, filter posts using the search bar, and like and unlike posts. Cinemary was built with React, to achieve the best User Experience possible, adding an infinite scroll and components that update without the whole document being refreshed. In this way, users can like/unlike, create and edit comments and don't have to wait for the page to refresh. When accessing the Website, users can search and read reviews without being logged in. If they want to save(like), comment, or create reviews, they need to Sign Up. On the Sign-Up page, they are asked to provide a username and password. After a successful Sign-Up, users are redirected to the Sign In page, where they have to input their login information. Once a user is logged into his account, the navbar options are updated. Now, the users can create a review, edit, and delete their reviews, comments, and likes. The project's goal is to build a community of movie fans, where people can share their thoughts about pieces and also find new suggestions on what to watch next.
 
 ---
 
@@ -50,7 +50,7 @@ After an account has been created, users can log in and log out from their accou
 
 ### Create Review
 
-This page contains a form, that allows users to create their reviews. They have to provide a title, genre, content, and image. The creation date and author's username are set automatically.
+This page contains a form, that allows users to create their reviews. They have to provide a title, genre, content, actors, release date, and image. The creation date and author's username are set automatically.
 
 - User Story: Create a Post
 
@@ -82,7 +82,7 @@ This page is identical to the home page, the difference is that only displays re
 
 ### Search Reviews
 
-On the home page and the liked page, there is a navbar that allows users to filter posts by title, genre, or review author's name.
+On the home page and the liked page, there is a navbar that allows users to filter posts by title, genre, actors, director, or review author's name.
 
 - User Story: Search Post and Filter Post
 
@@ -128,15 +128,15 @@ The page is refreshed as the user scrolls down loading more posts.
 
 ### Change Username and Password
 
-- Logged-in users can access the change username and password pages through the dropdown menu on the navbar. There, users are allowed to update their password.
+- Logged-in users can access the change username and password pages through the dropdown menu on the navbar.
 
 ![Change Password](assets/password.png)
 
 ### Reuse of React
 
-The use of React to develop this application, allowed the reuse of components through different pages, increasing the loading speed and giving a better user experience. The navbar and the movie display can be found on the homepage and the review page, using the same component. Users can see new likes and comments, without the pages being reloaded. The Movie component is used to display the reviews both on the home and liked pages.
+The use of React to develop this application, allowed the reuse of components through different pages, increasing the loading speed and giving a better user experience. The navbar and search bar can be found on different pages, using the same component. Users can see new likes and comments, without the pages being reloaded. The Movie component is used to display the reviews both on the home and liked pages.
 
-### To check all features and future features, check the project on [GitHub](https://github.com/users/Vepp1/projects/4)
+### To check all features and future features, access the project on [GitHub](https://github.com/users/Vepp1/projects/4)
 
 
 ---
@@ -152,10 +152,10 @@ The use of React to develop this application, allowed the reuse of components th
 ## Frontend Libraries
 
   ### React
-    - Create reusable components, infinite scroll and build a lighweight application, aiming for the best user experience.
+    - Create reusable components, infinite scroll, and build a lightweight application, aiming for the best user experience.
 
   ### React Bootstrap.
-    - Build a responsive website and choose between a collection of syntax for template design.
+    - Build a responsive website and choose between a collection of syntax to deliver the best template design.
 
   ### FontAwesome
     - Icon library and toolkit, to customize frontend.
@@ -173,27 +173,30 @@ The use of React to develop this application, allowed the reuse of components th
 
 ### Edit or delete a post from another user.
 
-- 2 accounts are needed. In one account, make a post and save its id. Log out and log in to a new account. Then, go to the address bar and type after the site's URL: edit/"post_id" - to try to edit. delete/order id from the other account - to try to delete.
+- 2 accounts are needed. In one account, make a post and save its id. Log out and log in to a new account. Then, go to the address bar and type after the site's URL: edit/"post_id" - to try to edit. delete/"post_id" - to try to delete.
 - Result: The user is redirected to the home page.
 
 ### Update username and password from another account.
 
-- After logging into an account try to access the URL: profiles/'profile_id' and change the profile id to a different number:
-  edit_order/your approved order id/ - to try to edit. delete_order/your approved order id/ - to try to delete.
+- After logging into an account try accessing the URL: profiles/'profile_id' and change the profile_id to a different number.
 - Result: The user is redirected to the home page.
 
 ### Create or edit a post with an image in an invalid format.
 - After logging into an account, go to Create and try to create a review with an image that is not a jpeg file.
 - Result: Alert message will be displayed and a post will not be created.
 
-### Create or edit a post with a title or genre with more than 50 characters.
-
-- After logging into an account try to create a post with an exceptionally long title or genre.
+### Create or edit a post with an image that doesn't have the correct size.
+- After logging into an account, go to Create and try to create a review with an image that is not a movie poster.
 - Result: Alert message will be displayed and a post will not be created.
 
-### Edit or delete another users comment.
+### Create or edit a post with a title of more than 50 characters.
 
-- After logging into an account access the review page and try to edit a comment switching classes on DevTools.
+- After logging into an account try to create a post with an exceptionally long title.
+- Result: Alert message will be displayed and a post will not be created.
+
+### Edit or delete another user's comment.
+
+- After logging into an account access the review page and try to edit a comment by switching classes on DevTools.
 - Result: Comments will not be updated.
 
 ### NavBar collapsing on mobiles.
@@ -244,8 +247,8 @@ The use of React to develop this application, allowed the reuse of components th
 - Deploying to Heroku:
   - Access www.heroku.com.
   - Click on New and Create New App.
-  - Choose an App name and a region and Create App.
-  - On the Deployment tab, connect to Github and choose the proper repository.
+  - Choose an App name and a region and Create an App.
+  - On the Deployment tab, connect to GitHub and choose the proper repository.
   - Deploy Branch.
 
 

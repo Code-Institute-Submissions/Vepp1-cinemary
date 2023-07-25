@@ -21,7 +21,7 @@ const CreateReview = () => {
   useRedirect("loggedOut");
   const [postData, setPostData] = useState({
     title: "",
-    classification: "",
+    genre: "",
     content: "",
     image: "",
     director: "",
@@ -56,7 +56,7 @@ const CreateReview = () => {
     const formData = new FormData();
 
     formData.append("title", postData.title);
-    formData.append("classification", postData.classification);
+    formData.append("genre", postData.genre);
     formData.append("content", postData.content);
     formData.append("director", postData.director);
     formData.append("release_at", postData.release_at);
@@ -98,18 +98,31 @@ const CreateReview = () => {
               </Alert>
             ))}
 
-            <Form.Group className="mb-3" controlId="classification">
+            <Form.Group className="mb-3" controlId="genre">
               <Form.Label>Genre</Form.Label>
               <Form.Control
-                type="text"
+                as="select"
                 placeholder="Genre"
-                name="classification"
+                name="genre"
                 className={styles.Input}
-                value={postData.classification}
+                value={postData.genre}
                 onChange={handleChange}
-              />
+              >
+                <option value='Action'>Action</option>
+                <option value='Adventure'>Adventure</option>
+                <option value='Cartoon'>Cartoon</option>
+                <option value='Comedy'>Comedy</option>
+                <option value='Cult'>Cult</option>
+                <option value='Drama'>Drama</option>
+                <option value='Historical'>Historical</option>
+                <option value='Horror'>Horror</option>
+                <option value='Musical'>Musical</option>
+                <option value='Sci-FI'>Sci-Fi</option>
+                <option value='Terror'>Terror</option>
+                <option value='Western'>Western</option>
+              </Form.Control>
             </Form.Group>
-            {errors.classification?.map((message, idx) => (
+            {errors.genre?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
