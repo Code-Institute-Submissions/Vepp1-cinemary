@@ -1,6 +1,6 @@
 # Cinemary
 
-Cinemary is an online platform where users can read and make reviews about movies and series. The app interface allows users' interactions to list, create, edit and delete posts or comments, filter posts using the search bar, and like and unlike posts. Cinemary was built with React, to achieve the best User Experience possible, adding an infinite scroll and components that update without the whole document being refreshed. In this way, users can like/unlike, create and edit comments and don't have to wait for the page to refresh.
+Cinemary is an online platform where users can read and make reviews about movies and series. The app interface allows users' interactions to list, create, edit and delete posts or comments, filter posts using the search bar, and like and unlike posts. Cinemary was built with React, to achieve the best User Experience possible, adding an infinite scroll and components that update without the whole document being refreshed. In this way, users can like/unlike, create and edit comments and don't have to wait for the page to refresh. When accessing the Website, users can search and read reviews without being logged in. If they want to save(like), comment or create reviews, they need to Sign Up. On the Sign-Up page, they are asked to provide a username and password. After a successful Sign-Up, users are redirected to the Sign In page, where they have to input their login information. Once a user is logged into his account, the navbar options are updated. Now, the user can create a review, edit and delete his reviews, comment, like. The project's goal is to build a community with film fans, where people can share their thoughts about pieces and also find new suggestions on what to watch next.
 
 ---
 
@@ -12,7 +12,7 @@ Cinemary is an online platform where users can read and make reviews about movie
 
 ### Color Palette and Typography
 
-The colors and Font-Family (Unbouded and Sans-Serif) where choosed to give the application a 'Light Theme' and a minimalist design.
+The colors and Font-Family (Unbounded and Sans-Serif) were chosen to give the application a 'Light Theme' and a minimalist design.
 
 ![Color Palette](assets/palette.png)
 
@@ -126,15 +126,15 @@ The page is refreshed as the user scrolls down loading more posts.
 
 - User Story: No Refresh
 
-### Change Password
+### Change Username and Password
 
-- Logged-in users can access the change credentials page through the dropdown menu on the navbar. There, users are allowed to update their password.
+- Logged-in users can access the change username and password pages through the dropdown menu on the navbar. There, users are allowed to update their password.
 
 ![Change Password](assets/password.png)
 
 ### Reuse of React
 
-The use of React developing this application, allowed the reuse of components through differente pages, increasing the loading speed and giving a better user experience. The navbar and the movie display, can be found on the homepage and on the review page, using the same component. Users can see new likes and comments, without the pages being reloaded.
+The use of React to develop this application, allowed the reuse of components through different pages, increasing the loading speed and giving a better user experience. The navbar and the movie display can be found on the homepage and the review page, using the same component. Users can see new likes and comments, without the pages being reloaded. The Movie component is used to display the reviews both on the home and liked pages.
 
 ### To check all features and future features, check the project on [GitHub](https://github.com/users/Vepp1/projects/4)
 
@@ -142,8 +142,6 @@ The use of React developing this application, allowed the reuse of components th
 ---
 
 ## Wireframe
-
-- The main idea was to build an app that would be easily accessible to all users, with an infinite scroll and a card display inspired by streaming interfaces.
 
 ## ![Wireframe](assets/wireframe.png)
 
@@ -153,10 +151,14 @@ The use of React developing this application, allowed the reuse of components th
 
 ## Frontend Libraries
 
-- Two Frontend Libs were used for the development of this project:
-  - React.
-  - React Bootstrap.
-  - Font Awesome.
+  ### React
+    - Create reusable components, infinite scroll and build a lighweight application, aiming for the best user experience.
+
+  ### React Bootstrap.
+    - Build a responsive website and choose between a collection of syntax for template design.
+
+  ### FontAwesome
+    - Icon library and toolkit, to customize frontend.
 
 ---
 
@@ -174,21 +176,45 @@ The use of React developing this application, allowed the reuse of components th
 - 2 accounts are needed. In one account, make a post and save its id. Log out and log in to a new account. Then, go to the address bar and type after the site's URL: edit/"post_id" - to try to edit. delete/order id from the other account - to try to delete.
 - Result: The user is redirected to the home page.
 
-### Update password from another account.
+### Update username and password from another account.
 
 - After logging into an account try to access the URL: profiles/'profile_id' and change the profile id to a different number:
   edit_order/your approved order id/ - to try to edit. delete_order/your approved order id/ - to try to delete.
 - Result: The user is redirected to the home page.
 
-### Create or edit a post with an image of an invalid format.
-
-- After logging into an account try to access go to create and try to create a review with an image that is not a jpeg file.
+### Create or edit a post with an image in an invalid format.
+- After logging into an account, go to Create and try to create a review with an image that is not a jpeg file.
 - Result: Alert message will be displayed and a post will not be created.
 
 ### Create or edit a post with a title or genre with more than 50 characters.
 
-- After logging into an account try to access go to create and try to add a post with an exceptionally long title or genre.
+- After logging into an account try to create a post with an exceptionally long title or genre.
 - Result: Alert message will be displayed and a post will not be created.
+
+### Edit or delete another users comment.
+
+- After logging into an account access the review page and try to edit a comment switching classes on DevTools.
+- Result: Comments will not be updated.
+
+### NavBar collapsing on mobiles.
+
+- On a mobile display, click on the navbar links and check if the navbar auto-collapses.
+- Result: Navbar is collapsing after links are clicked.
+
+### Cross Browser Testing.
+
+- Go through all possible user journeys on the website, on different browsers.
+- Result: The application is working in different browsers. Log-in on iOS mobile devices is not working.
+
+### Accessibility and performance.
+
+- Utilize LightHouse to measure accessibility and performance.
+- Result: 
+
+![Lighthouse](assets/lighthouse.png)
+
+
+
 
 ### Validator Testing
 
@@ -200,10 +226,6 @@ The use of React developing this application, allowed the reuse of components th
 
   - All files passed through Eslint.
 
-- PEP8
-
-  - All pages passed through vs code python linter.
-
 - Color Contrast
   - The website's color contrast was validated through [a11y](https://color.a11y.com/Contrast/), and presented no issues.
 
@@ -211,7 +233,7 @@ The use of React developing this application, allowed the reuse of components th
 
 ### Unfixed Bugs
 
-- Creating and loggin into an account is not working on IOS mobile devices.
+- Creating and logging into an account is not working on IOS mobile devices.
 
 ---
 
@@ -221,7 +243,7 @@ The use of React developing this application, allowed the reuse of components th
 
 - Deploying to Heroku:
   - Access www.heroku.com.
-  - Click on new and Create New App.
+  - Click on New and Create New App.
   - Choose an App name and a region and Create App.
   - On the Deployment tab, connect to Github and choose the proper repository.
   - Deploy Branch.
